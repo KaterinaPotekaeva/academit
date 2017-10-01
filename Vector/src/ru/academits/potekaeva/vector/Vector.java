@@ -4,7 +4,6 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Vector {
-
     private int n;               // мерность вектора
     private double[] data;       // массив компонент вектора
 
@@ -18,6 +17,8 @@ public class Vector {
     }
 
     public Vector(Vector vector) {
+        this.n = vector.n;
+        this.data = vector.data;
     }
 
     public Vector(double... a) {
@@ -40,46 +41,54 @@ public class Vector {
         }
     }
 
-    // узнать размерность
     public int getSize() {
         return n;
     }
 
-    // Умножение на скаляр
     public Vector scale(double scalar) {
-        Vector c = new Vector(n);
         for (int i = 0; i < n; i++) {
-            c.data[i] = scalar * data[i];
+            data[i] = scalar * data[i];
         }
-        return c;
+        return this;
+    }
+    public Vector turnVector () {
+        for (int i = 0; i < n; i++) {
+            data[i] = -1 * data[i];
+        }
+        return this;
     }
 
-    // Прибавление к вектору другого вектора
     public Vector plus(Vector that) {
-        Vector c = new Vector(Math.max(n, that.n));
-        Vector newVector = new Vector(Math.max(n, that.n));
-        if (n < that.n) {
+        Vector plusVector = getNewSize(this, that);
+        Vector maxVector = getMaxVector(this, that);
 
-            System.out.println(Arrays.toString(data));
-            for (int i = 0; i < that.n; i++) {
-                c.data[i] = data[i] + that.data[i];
-            }
+        for (int i = 0; i < plusVector.data.length; i++) {
+            plusVector.data[i] = plusVector.data[i] + maxVector.data[i];
         }
-        return c;
+        return plusVector;
     }
 
     public Vector minus(Vector that) {
-        Vector c = new Vector(n);
-        for (int i = 0; i < n; i++) {
-            c.data[i] = this.data[i] - that.data[i];
+        Vector minusVector = getNewSize(this, that);
+        if (this.n <= that.n) {
+            for (int i = 0; i < that.n; i++) {
+                minusVector.data[i] = minusVector.data[i] - that.data[i];
+            }
+        } else {
+            for (int i = 0; i < n; i++) {
+                minusVector.data[i] = this.data[i] - minusVector.data[i];
+            }
         }
-        return c;
+        return minusVector;
     }
 
     public double dot(Vector that) {
         double sum = 0.0;
-        for (int i = 0; i < n; i++)
-            sum = sum + (this.data[i] * that.data[i]);
+        Vector minVector = getNewSize(this, that);
+        Vector maxVector = getMaxVector(this, that);
+        for (int i = 0; i < minVector.data.length; i++) {
+            sum = sum + (minVector.data[i] * maxVector.data[i]);
+        }
         return sum;
     }
 
@@ -87,41 +96,63 @@ public class Vector {
         return Math.sqrt(this.dot(this));
     }
 
-    public double distanceTo(Vector that) {
-        if (this.n != that.n) throw new IllegalArgumentException("Dimensions don't agree");
-        return this.minus(that).magnitude();
-    }
-
-
     public double cartesian(int i) {
+        if (i >= data.length) {
+            throw new IllegalArgumentException("Index does't exist");
+        }
         return data[i];
     }
 
-  /*  public Vector direction() {
-        if (this.magnitude() == 0.0) throw new ArithmeticException("Zero-vector has no direction");
-        return this.scale(1.0 / this.magnitude());
-    }*/
+    private Vector getNewSize(Vector vector1, Vector vector2) {
+        Vector newVector = new Vector(Math.max(vector1.n, vector2.n));
+
+        if (vector1.n < vector2.n) {
+            System.arraycopy(vector1.data, 0, newVector.data, 0, vector1.n);
+        } else if (vector1.n >= vector2.n) {
+            System.arraycopy(vector2.data, 0, newVector.data, 0, vector2.n);
+        }
+        return newVector;
+    }
+
+    private Vector getMaxVector(Vector vector1, Vector vector2) {
+        if (vector1.n < vector2.n) {
+            return vector2;
+        } else {
+            return vector1;
+        }
+    }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Vector)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Vector)) {
+            return false;
+        }
 
         Vector vector = (Vector) o;
 
-        if (n != vector.n) return false;
+        if (n != vector.n) {
+            return false;
+        }
         return Arrays.equals(data, vector.data);
     }
 
     @Override
     public int hashCode() {
         int result = n;
-        result = 31 * result + Arrays.hashCode(data);
+        final int prime = 31;
+        result = prime * result + Arrays.hashCode(data);
         return result;
     }
 
     @Override
     public String toString() {
-        return "{" + Arrays.toString(data) + '}';
+        StringBuilder s = new StringBuilder();
+        s.append(data[0]);
+        for (int i = 1; i < n; i++)
+            s.append(", ").append(data[i]);
+        return '{' + s.toString() + '}';
     }
 }
