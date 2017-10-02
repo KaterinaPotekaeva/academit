@@ -42,7 +42,7 @@ public class Triangle implements Shape {
         if (this == obj) {
             return true;
         }
-        if (!(obj instanceof Triangle)) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
 

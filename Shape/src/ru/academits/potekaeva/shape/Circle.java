@@ -34,10 +34,7 @@ public class Circle implements Shape {
 
         Circle circle = (Circle) obj;
 
-        if (radius != circle.getWidth()) {
-            return false;
-        }
-        return true;
+        return !(radius != circle.radius);
     }
 
     @Override

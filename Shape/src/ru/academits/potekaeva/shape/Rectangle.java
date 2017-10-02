@@ -38,7 +38,7 @@ public class Rectangle implements Shape {
 
         if (width != rectangle.getWidth()) {
             return false;
-        } else if (height != rectangle.getWidth()) {
+        } else if (height != rectangle.getHeight()) {
             return false;
         }
         return true;

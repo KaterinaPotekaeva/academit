@@ -42,10 +42,7 @@ public class Square implements Shape {
 
         Square square = (Square) obj;
 
-        if (width != square.getWidth()) {
-            return false;
-        }
-        return true;
+        return !(width != square.width);
     }
 
     @Override
