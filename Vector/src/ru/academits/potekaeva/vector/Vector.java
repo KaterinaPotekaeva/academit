@@ -72,6 +72,17 @@ public class Vector {
         return plusVector;
     }
 
+    public static Vector plus(Vector vector1, Vector vector2) {
+
+        Vector plusVector = getNewSize(vector1, vector2);
+        Vector maxVector = getMaxVector(vector1, vector2);
+
+        for (int i = 0; i < plusVector.data.length; i++) {
+            plusVector.data[i] = plusVector.data[i] + maxVector.data[i];
+        }
+        return plusVector;
+    }
+
     public Vector minus(Vector that) {
         Vector minusVector = getNewSize(this, that);
 
@@ -87,10 +98,36 @@ public class Vector {
         return minusVector;
     }
 
+    public static Vector minus(Vector vector1, Vector vector2) {
+
+        Vector minusVector = getNewSize(vector1, vector2);
+        if (vector1.n <= vector2.n) {
+            for (int i = 0; i < vector2.n; i++) {
+                minusVector.data[i] = minusVector.data[i] - vector2.data[i];
+            }
+        } else {
+            for (int i = 0; i < vector1.n; i++) {
+                minusVector.data[i] = vector1.data[i] - minusVector.data[i];
+            }
+        }
+        return minusVector;
+    }
+
     public double dot(Vector that) {
         double sum = 0.0;
         Vector minVector = getNewSize(this, that);
         Vector maxVector = getMaxVector(this, that);
+
+        for (int i = 0; i < minVector.data.length; i++) {
+            sum = sum + (minVector.data[i] * maxVector.data[i]);
+        }
+        return sum;
+    }
+
+    public static double dot(Vector vector1, Vector vector2) {
+        double sum = 0.0;
+        Vector minVector = getNewSize(vector1, vector2);
+        Vector maxVector = getMaxVector(vector1, vector2);
 
         for (int i = 0; i < minVector.data.length; i++) {
             sum = sum + (minVector.data[i] * maxVector.data[i]);
@@ -109,7 +146,7 @@ public class Vector {
         return data[i];
     }
 
-    private Vector getNewSize(Vector vector1, Vector vector2) {
+    private static Vector getNewSize(Vector vector1, Vector vector2) {
         Vector newVector = new Vector(Math.max(vector1.n, vector2.n));
 
         if (vector1.n < vector2.n) {
@@ -120,7 +157,7 @@ public class Vector {
         return newVector;
     }
 
-    private Vector getMaxVector(Vector vector1, Vector vector2) {
+    private static Vector getMaxVector(Vector vector1, Vector vector2) {
         if (vector1.n < vector2.n) {
             return vector2;
         } else {

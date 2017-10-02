@@ -2,6 +2,10 @@ package ru.academits.potekaeva.main;
 
 import ru.academits.potekaeva.vector.Vector;
 
+import static ru.academits.potekaeva.vector.Vector.minus;
+import static ru.academits.potekaeva.vector.Vector.plus;
+import static ru.academits.potekaeva.vector.Vector.dot;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -12,12 +16,21 @@ public class Main {
 
         System.out.println("   x       = " + x);
         System.out.println("   y       = " + y);
+
         System.out.println("   x + y   = " + x.plus(y));
+        System.out.println("   x + y   = " + plus(x, y));
+
         System.out.println("   x - y   = " + x.minus(y));
+        System.out.println("   x - y   = " + minus(x, y));
+
         System.out.println("  |x|      = " + x.magnitude());
         System.out.println("  -x       = " + x.turnVector());
+
         System.out.println("Умножение вектора на скаляр: 10x  = " + x.scale(10.0));
+
         System.out.println("Скалярное произведение векторов x ,y  = " + x.dot(y));
+        System.out.println("Скалярное произведение векторов x ,y  = " + dot(x, y));
+
         System.out.println("Компонента вектора х по индексу 0 = " + x.cartesian(0));
     }
 
