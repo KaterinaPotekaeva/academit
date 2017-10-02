@@ -1,6 +1,5 @@
 package ru.academits.potekaeva.vector;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Vector {
@@ -32,12 +31,16 @@ public class Vector {
     }
 
     public Vector(int n, double... a) {
-        this.n = n;
         if (n <= 0) {
             throw new IllegalArgumentException("Size does't exist");
         } else {
+            this.n = n;
             data = new double[n];
-            System.arraycopy(a, 0, data, 0, n);
+            if (n < a.length) {
+                System.arraycopy(a, 0, data, 0, n);
+            } else {
+                System.arraycopy(a, 0, data, 0, a.length);
+            }
         }
     }
 
@@ -51,7 +54,8 @@ public class Vector {
         }
         return this;
     }
-    public Vector turnVector () {
+
+    public Vector turnVector() {
         for (int i = 0; i < n; i++) {
             data[i] = -1 * data[i];
         }
@@ -70,6 +74,7 @@ public class Vector {
 
     public Vector minus(Vector that) {
         Vector minusVector = getNewSize(this, that);
+
         if (this.n <= that.n) {
             for (int i = 0; i < that.n; i++) {
                 minusVector.data[i] = minusVector.data[i] - that.data[i];
@@ -86,6 +91,7 @@ public class Vector {
         double sum = 0.0;
         Vector minVector = getNewSize(this, that);
         Vector maxVector = getMaxVector(this, that);
+
         for (int i = 0; i < minVector.data.length; i++) {
             sum = sum + (minVector.data[i] * maxVector.data[i]);
         }

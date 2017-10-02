@@ -17,6 +17,26 @@ public class Triangle implements Shape {
         this.y3 = y3;
     }
 
+    public double getWidth() {
+        return Math.max(Math.max(x1, x2), x3) - Math.min(Math.min(x1, x2), x3);
+    }
+
+    public double getHeight() {
+        return Math.max(Math.max(y1, y2), y3) - Math.min(Math.min(y1, y2), y3);
+    }
+
+    public double getArea() {
+        return (Math.abs((x1 - x3) * (y2 - y3) - (x2 - x3) * (y1 - y3))) / 2;
+    }
+
+    public double getPerimeter() {
+        return getSide(x1, x2, y1, y2) + getSide(x1, x3, y1, y3) + getSide(x2, x3, y2, y3);
+    }
+
+    private static double getSide(double x1, double x2, double y1, double y2) {
+        return Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -54,25 +74,5 @@ public class Triangle implements Shape {
                 ", x3=" + x3 +
                 ", y3=" + y3 +
                 '}';
-    }
-
-    public double getWidth() {
-        return Math.max(Math.max(x1, x2), x3) - Math.min(Math.min(x1, x2), x3);
-    }
-
-    public double getHeight() {
-        return Math.max(Math.max(y1, y2), y3) - Math.min(Math.min(y1, y2), y3);
-    }
-
-    public double getArea() {
-        return (Math.abs((x1 - x3) * (y2 - y3) - (x2 - x3) * (y1 - y3))) / 2;
-    }
-
-    public double getPerimeter() {
-        return getSide(x1, x2, y1, y2) + getSide(x1, x3, y1, y3) + getSide(x2, x3, y2, y3);
-    }
-
-    private static double getSide(double x1, double x2, double y1, double y2) {
-        return Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
     }
 }

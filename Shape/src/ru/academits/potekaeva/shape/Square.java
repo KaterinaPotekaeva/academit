@@ -7,6 +7,22 @@ public class Square implements Shape {
         this.width = width;
     }
 
+    public double getWidth() {
+        return width;
+    }
+
+    public double getHeight() {
+        return width;
+    }
+
+    public double getArea() {
+        return Math.pow(width, 2);
+    }
+
+    public double getPerimeter() {
+        return 4 * width;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -23,6 +39,7 @@ public class Square implements Shape {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
+
         Square square = (Square) obj;
 
         if (width != square.getWidth()) {
@@ -36,21 +53,5 @@ public class Square implements Shape {
         return "Square{" +
                 "width=" + width +
                 '}';
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public double getHeight() {
-        return width;
-    }
-
-    public double getArea() {
-        return Math.pow(width, 2);
-    }
-
-    public double getPerimeter() {
-        return 4 * width;
     }
 }

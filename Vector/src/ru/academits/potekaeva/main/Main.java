@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         double[] vector1 = {-1.4, 2.0, 3.0, 9.9, 8.1};
         double[] vector2 = {5.0, 2.0, 4.0, 1.0};
-        Vector x = new Vector(1,vector1);
+        Vector x = new Vector(9, vector1);
         Vector y = new Vector(vector2);
 
         System.out.println("   x       = " + x);
