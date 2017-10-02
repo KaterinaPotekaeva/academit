@@ -3,11 +3,9 @@ package ru.academits.potekaeva.vector;
 import java.util.Arrays;
 
 public class Vector {
-    private int n;               // мерность вектора
     private double[] data;       // массив компонент вектора
 
     public Vector(int n) {
-        this.n = n;
         if (n <= 0) {
             throw new IllegalArgumentException("Size does't exist");
         } else {
@@ -16,17 +14,15 @@ public class Vector {
     }
 
     public Vector(Vector vector) {
-        this.n = vector.n;
+
         this.data = vector.data;
     }
 
     public Vector(double... a) {
-        n = a.length;
-        if (n <= 0) {
+        if (a.length <= 0) {
             throw new IllegalArgumentException("Size does't exist");
         } else {
-            data = new double[n];
-            System.arraycopy(a, 0, data, 0, n);
+            data = Arrays.copyOf(a, a.length);
         }
     }
 
@@ -34,30 +30,17 @@ public class Vector {
         if (n <= 0) {
             throw new IllegalArgumentException("Size does't exist");
         } else {
-            this.n = n;
-            data = new double[n];
-            if (n < a.length) {
-                System.arraycopy(a, 0, data, 0, n);
-            } else {
-                System.arraycopy(a, 0, data, 0, a.length);
-            }
+            data = Arrays.copyOf(a, n);
         }
     }
 
-    public int getSize() {
-        return n;
+    private int getSize() {
+        return data.length;
     }
 
     public Vector scale(double scalar) {
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < getSize(); i++) {
             data[i] = scalar * data[i];
-        }
-        return this;
-    }
-
-    public Vector turnVector() {
-        for (int i = 0; i < n; i++) {
-            data[i] = -1 * data[i];
         }
         return this;
     }
@@ -66,7 +49,7 @@ public class Vector {
         Vector plusVector = getNewSize(this, that);
         Vector maxVector = getMaxVector(this, that);
 
-        for (int i = 0; i < plusVector.data.length; i++) {
+        for (int i = 0; i < plusVector.getSize(); i++) {
             plusVector.data[i] = plusVector.data[i] + maxVector.data[i];
         }
         return plusVector;
@@ -77,7 +60,7 @@ public class Vector {
         Vector plusVector = getNewSize(vector1, vector2);
         Vector maxVector = getMaxVector(vector1, vector2);
 
-        for (int i = 0; i < plusVector.data.length; i++) {
+        for (int i = 0; i < plusVector.getSize(); i++) {
             plusVector.data[i] = plusVector.data[i] + maxVector.data[i];
         }
         return plusVector;
@@ -86,12 +69,12 @@ public class Vector {
     public Vector minus(Vector that) {
         Vector minusVector = getNewSize(this, that);
 
-        if (this.n <= that.n) {
-            for (int i = 0; i < that.n; i++) {
+        if (this.getSize() <= that.getSize()) {
+            for (int i = 0; i < that.getSize(); i++) {
                 minusVector.data[i] = minusVector.data[i] - that.data[i];
             }
         } else {
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i < this.getSize(); i++) {
                 minusVector.data[i] = this.data[i] - minusVector.data[i];
             }
         }
@@ -101,12 +84,12 @@ public class Vector {
     public static Vector minus(Vector vector1, Vector vector2) {
 
         Vector minusVector = getNewSize(vector1, vector2);
-        if (vector1.n <= vector2.n) {
-            for (int i = 0; i < vector2.n; i++) {
+        if (vector1.getSize() <= vector2.getSize()) {
+            for (int i = 0; i < vector2.getSize(); i++) {
                 minusVector.data[i] = minusVector.data[i] - vector2.data[i];
             }
         } else {
-            for (int i = 0; i < vector1.n; i++) {
+            for (int i = 0; i < vector1.getSize(); i++) {
                 minusVector.data[i] = vector1.data[i] - minusVector.data[i];
             }
         }
@@ -118,7 +101,7 @@ public class Vector {
         Vector minVector = getNewSize(this, that);
         Vector maxVector = getMaxVector(this, that);
 
-        for (int i = 0; i < minVector.data.length; i++) {
+        for (int i = 0; i < minVector.getSize(); i++) {
             sum = sum + (minVector.data[i] * maxVector.data[i]);
         }
         return sum;
@@ -129,7 +112,7 @@ public class Vector {
         Vector minVector = getNewSize(vector1, vector2);
         Vector maxVector = getMaxVector(vector1, vector2);
 
-        for (int i = 0; i < minVector.data.length; i++) {
+        for (int i = 0; i < minVector.getSize(); i++) {
             sum = sum + (minVector.data[i] * maxVector.data[i]);
         }
         return sum;
@@ -140,25 +123,25 @@ public class Vector {
     }
 
     public double cartesian(int i) {
-        if (i >= data.length) {
+        if (i >= getSize()) {
             throw new IllegalArgumentException("Index does't exist");
         }
         return data[i];
     }
 
     private static Vector getNewSize(Vector vector1, Vector vector2) {
-        Vector newVector = new Vector(Math.max(vector1.n, vector2.n));
+        Vector newVector = new Vector(Math.max(vector1.getSize(), vector2.getSize()));
 
-        if (vector1.n < vector2.n) {
-            System.arraycopy(vector1.data, 0, newVector.data, 0, vector1.n);
-        } else if (vector1.n >= vector2.n) {
-            System.arraycopy(vector2.data, 0, newVector.data, 0, vector2.n);
+        if (vector1.getSize() < vector2.getSize()) {
+            System.arraycopy(vector1.data, 0, newVector.data, 0, vector1.getSize());
+        } else if (vector1.getSize() >= vector2.getSize()) {
+            System.arraycopy(vector2.data, 0, newVector.data, 0, vector2.getSize());
         }
         return newVector;
     }
 
     private static Vector getMaxVector(Vector vector1, Vector vector2) {
-        if (vector1.n < vector2.n) {
+        if (vector1.getSize() < vector2.getSize()) {
             return vector2;
         } else {
             return vector1;
@@ -176,15 +159,12 @@ public class Vector {
 
         Vector vector = (Vector) o;
 
-        if (n != vector.n) {
-            return false;
-        }
-        return Arrays.equals(data, vector.data);
+        return getSize() == vector.getSize() && Arrays.equals(data, vector.data);
     }
 
     @Override
     public int hashCode() {
-        int result = n;
+        int result = getSize();
         final int prime = 31;
         result = prime * result + Arrays.hashCode(data);
         return result;
@@ -194,7 +174,7 @@ public class Vector {
     public String toString() {
         StringBuilder s = new StringBuilder();
         s.append(data[0]);
-        for (int i = 1; i < n; i++)
+        for (int i = 1; i < getSize(); i++)
             s.append(", ").append(data[i]);
         return '{' + s.toString() + '}';
     }

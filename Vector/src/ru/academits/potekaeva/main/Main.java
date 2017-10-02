@@ -24,7 +24,7 @@ public class Main {
         System.out.println("   x - y   = " + minus(x, y));
 
         System.out.println("  |x|      = " + x.magnitude());
-        System.out.println("  -x       = " + x.turnVector());
+        System.out.println("  -x       = " + x.scale(-1));
 
         System.out.println("Умножение вектора на скаляр: 10x  = " + x.scale(10.0));
 
