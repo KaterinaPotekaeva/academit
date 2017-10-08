@@ -3,7 +3,15 @@ package ru.academits.potekaeva.vector;
 import java.util.Arrays;
 
 public class Vector {
-    private double[] data;       // массив компонент вектора
+    private double[] data;
+
+    public void setData(double[] data) {
+        this.data = data;
+    }
+
+    public double[] getData() {
+        return data;
+    }
 
     public Vector(int n) {
         if (n <= 0) {
@@ -14,7 +22,6 @@ public class Vector {
     }
 
     public Vector(Vector vector) {
-
         this.data = vector.data;
     }
 
@@ -27,36 +34,36 @@ public class Vector {
     }
 
     public Vector(int n, double... a) {
-        if (n <= 0) {
-            throw new IllegalArgumentException("Size does't exist");
-        } else {
-            data = Arrays.copyOf(a, n);
-        }
+
+        data = Arrays.copyOf(a, n);
     }
+
 
     private int getSize() {
         return data.length;
     }
 
+    // Умножение на скаляр, разворот вектора
     public Vector scale(double scalar) {
+        Vector newVector = new Vector(getSize());
         for (int i = 0; i < getSize(); i++) {
-            data[i] = scalar * data[i];
+            newVector.data[i] = scalar * data[i];
         }
-        return this;
+        return newVector;
     }
 
+    // Сложение
     public Vector plus(Vector that) {
         Vector plusVector = getNewSize(this, that);
         Vector maxVector = getMaxVector(this, that);
-
         for (int i = 0; i < plusVector.getSize(); i++) {
             plusVector.data[i] = plusVector.data[i] + maxVector.data[i];
         }
         return plusVector;
     }
 
-    public static Vector plus(Vector vector1, Vector vector2) {
 
+    public static Vector plus(Vector vector1, Vector vector2) {
         Vector plusVector = getNewSize(vector1, vector2);
         Vector maxVector = getMaxVector(vector1, vector2);
 
@@ -66,6 +73,7 @@ public class Vector {
         return plusVector;
     }
 
+    //Вычитание
     public Vector minus(Vector that) {
         Vector minusVector = getNewSize(this, that);
 
@@ -96,46 +104,58 @@ public class Vector {
         return minusVector;
     }
 
-    public double dot(Vector that) {
+    //Получение длины вектора
+    public double getLength() {
         double sum = 0.0;
-        Vector minVector = getNewSize(this, that);
-        Vector maxVector = getMaxVector(this, that);
-
-        for (int i = 0; i < minVector.getSize(); i++) {
-            sum = sum + (minVector.data[i] * maxVector.data[i]);
+        for (int i = 0; i < getSize(); i++) {
+            sum = sum + (data[i] * data[i]);
         }
-        return sum;
-    }
-
-    public static double dot(Vector vector1, Vector vector2) {
-        double sum = 0.0;
-        Vector minVector = getNewSize(vector1, vector2);
-        Vector maxVector = getMaxVector(vector1, vector2);
-
-        for (int i = 0; i < minVector.getSize(); i++) {
-            sum = sum + (minVector.data[i] * maxVector.data[i]);
-        }
-        return sum;
+        return Math.sqrt(sum);
     }
 
     public double magnitude() {
-        return Math.sqrt(this.dot(this));
+        return Math.sqrt(this.dot(this, this));
+    }
+//Скалярное произведение векторов
+
+    public static double dot(Vector vector1, Vector vector2) {
+        double sum = 0.0;
+        if (vector1.getSize() < vector2.getSize()) {
+            for (int i = 0; i < vector1.getSize(); i++) {
+                sum = sum + (vector1.data[i] * vector2.data[i]);
+            }
+            sum = sum + Arrays.stream(vector2.data, vector1.getSize(), vector2.getSize()).sum();
+            return sum;
+        } else {
+            for (int i = 0; i < vector2.getSize(); i++) {
+                sum = sum + (vector1.data[i] * vector2.data[i]);
+            }
+            sum = sum + Arrays.stream(vector1.data, vector2.getSize(), vector1.getSize()).sum();
+            return sum;
+        }
     }
 
-    public double cartesian(int i) {
-        if (i >= getSize()) {
-            throw new IllegalArgumentException("Index does't exist");
+    //Компонента вектора х по индексу
+    public void setElement(double element, int i) {
+        try {
+            data[i] = element;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Обращение по недопустимому индексу " + i + " массива " + this);
         }
-        return data[i];
+    }
+
+    public Vector getElement() {
+        return this;
     }
 
     private static Vector getNewSize(Vector vector1, Vector vector2) {
         Vector newVector = new Vector(Math.max(vector1.getSize(), vector2.getSize()));
 
         if (vector1.getSize() < vector2.getSize()) {
-            System.arraycopy(vector1.data, 0, newVector.data, 0, vector1.getSize());
+            newVector.data = Arrays.copyOf(vector1.data, vector2.getSize());
+
         } else if (vector1.getSize() >= vector2.getSize()) {
-            System.arraycopy(vector2.data, 0, newVector.data, 0, vector2.getSize());
+            newVector.data = Arrays.copyOf(vector2.data, vector1.getSize());
         }
         return newVector;
     }
@@ -156,7 +176,6 @@ public class Vector {
         if (!(o instanceof Vector)) {
             return false;
         }
-
         Vector vector = (Vector) o;
 
         return getSize() == vector.getSize() && Arrays.equals(data, vector.data);
@@ -172,10 +191,9 @@ public class Vector {
 
     @Override
     public String toString() {
-        StringBuilder s = new StringBuilder();
-        s.append(data[0]);
+        StringBuilder s = new StringBuilder("{" + data[0]);
         for (int i = 1; i < getSize(); i++)
             s.append(", ").append(data[i]);
-        return '{' + s.toString() + '}';
+        return s.toString() + '}';
     }
 }
