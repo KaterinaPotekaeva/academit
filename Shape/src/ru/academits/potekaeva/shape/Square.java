@@ -42,6 +42,9 @@ public class Square implements Shape {
 
         Square square = (Square) obj;
 
+        if (width != square.width) {
+            return false;
+        }
         return !(width != square.width);
     }
 

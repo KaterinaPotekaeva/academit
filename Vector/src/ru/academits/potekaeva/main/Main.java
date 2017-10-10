@@ -11,18 +11,17 @@ public class Main {
     public static void main(String[] args) {
 
         double[] vector1 = {1, 1, 1};
-        double[] vector2 = {1, 1, 1};
+        double[] vector2 = {2, 2, 2};
 
-        Vector x = new Vector(vector1);
         Vector y = new Vector(vector2);
+        Vector x = new Vector(y);
+
 
         System.out.println("   x       = " + x);
         System.out.println("   y       = " + y);
         System.out.println("   x + y   = " + plus(x, y));
         System.out.println("   x + y   = " + x.plus(y));
 
-        System.out.println("   x       = " + x);
-        System.out.println("   y       = " + y);
         System.out.println("   x - y   = " + x.minus(y));
         System.out.println("   x - y   = " + minus(x, y));
 
@@ -34,7 +33,8 @@ public class Main {
         System.out.println("  <x,y>       = " + dot(x, y));
         System.out.println("Умножение вектора на скаляр: 10x  = " + x.scale(10.0));
 
-        x.setElement(6, 11);
-        System.out.println("   x       = " + x.getElement());
+        x.setElement(2, 1);
+        System.out.println("   x       = " + x);
+        System.out.println("   x       = " + x.getElement(1));
     }
 }

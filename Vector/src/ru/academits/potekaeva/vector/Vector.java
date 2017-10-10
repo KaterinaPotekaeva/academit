@@ -5,6 +5,14 @@ import java.util.Arrays;
 public class Vector {
     private double[] data;
 
+    public void setData(double[] data) {
+        this.data = data;
+    }
+
+    public double[] getData() {
+        return data;
+    }
+
     public Vector(int n) {
         if (n <= 0) {
             throw new IllegalArgumentException("Size does't exist");
@@ -14,7 +22,8 @@ public class Vector {
     }
 
     public Vector(Vector vector) {
-        this.data = vector.data;
+        //  this.data = vector.getData(); TODO - можно сдеать так? Или так не переопределяется?
+        this.data = Arrays.copyOf(vector.data, vector.data.length);
     }
 
     public Vector(double... a) {
@@ -26,12 +35,15 @@ public class Vector {
     }
 
     public Vector(int n, double... a) {
-        data = Arrays.copyOf(a, n);
+        if (a.length <= 0) {
+            throw new IllegalArgumentException("Size does't exist");
+        } else {
+            data = Arrays.copyOf(a, n);
+        }
     }
 
     //Компонента вектора х по индексу
-    public void setElement(double element, int i) {
-
+    public void setElement(int i, double element) {
         if (i >= getSize() || i < 0) {
             throw new IndexOutOfBoundsException();
         } else {
@@ -39,8 +51,8 @@ public class Vector {
         }
     }
 
-    public Vector getElement() {
-        return this;
+    public double getElement(int i) {
+        return data[i];
     }
 
     private int getSize() {
@@ -50,6 +62,7 @@ public class Vector {
     // Умножение на скаляр, разворот вектора
     public Vector scale(double scalar) {
         Vector newVector = new Vector(getSize());
+
         for (int i = 0; i < getSize(); i++) {
             newVector.data[i] = scalar * data[i];
         }
@@ -58,83 +71,43 @@ public class Vector {
 
     // Сложение
     public static Vector plus(Vector vector1, Vector vector2) {
-        Vector plusVector = vector1.getNewSize(vector2);
-
-        if (vector1.getSize() == vector2.getSize()) {
-            for (int i = 0; i < vector2.getSize(); i++) {
-                plusVector.data[i] = vector1.data[i] + vector2.data[i];
-            }
-        } else if (vector1.getSize() > vector2.getSize()) {
-            for (int i = 0; i < vector1.getSize(); i++) {
-                plusVector.data[i] = vector1.data[i] + plusVector.data[i];
-            }
-        } else {
-            for (int i = 0; i < vector2.getSize(); i++) {
-                plusVector.data[i] = plusVector.data[i] + vector2.data[i];
-            }
-        }
-        return plusVector;
+        return vector1.plus(vector2);
     }
 
     public Vector plus(Vector that) {
         if (getSize() <= that.getSize()) {
             data = Arrays.copyOf(data, that.getSize());
-            for (int i = 0; i < getSize(); i++) {
-                this.data[i] = this.data[i] + that.data[i];
-            }
-        } else {
-            for (int i = 0; i < that.getSize(); i++) {
-                this.data[i] = this.data[i] + that.data[i];
-            }
+        }
+
+        for (int i = 0; i < getSize(); i++) {
+            this.data[i] = this.data[i] + that.data[i];
         }
         return this;
     }
 
     //Вычитание
     public Vector minus(Vector that) {
-        Vector minusVector = getNewSize(this, that);
-
-        if (this.getSize() == that.getSize()) {
-            for (int i = 0; i < that.getSize(); i++) {
-                minusVector.data[i] = data[i] - that.data[i];
-            }
-        } else if (this.getSize() < that.getSize()) {
-            for (int i = 0; i < that.getSize(); i++) {
-                minusVector.data[i] = minusVector.data[i] - that.data[i];
-            }
-        } else {
-            for (int i = 0; i < this.getSize(); i++) {
-                minusVector.data[i] = this.data[i] - minusVector.data[i];
-            }
+        if (getSize() <= that.getSize()) {
+            data = Arrays.copyOf(data, that.getSize());
         }
-        return minusVector;
+
+        for (int i = 0; i < getSize(); i++) {
+            this.data[i] = this.data[i] - that.data[i];
+        }
+        return this;
     }
 
     public static Vector minus(Vector vector1, Vector vector2) {
-        Vector minusVector = vector1.getNewSize(vector2);
-
-        if (vector1.getSize() == vector2.getSize()) {
-            for (int i = 0; i < vector2.getSize(); i++) {
-                minusVector.data[i] = vector1.data[i] - vector2.data[i];
-            }
-        } else if (vector1.getSize() < vector2.getSize()) {
-            for (int i = 0; i < vector2.getSize(); i++) {
-                minusVector.data[i] = minusVector.data[i] - vector2.data[i];
-            }
-        } else {
-            for (int i = 0; i < vector1.getSize(); i++) {
-                minusVector.data[i] = vector1.data[i] - minusVector.data[i];
-            }
-        }
-        return minusVector;
+        return vector1.minus(vector2);
     }
 
     //Получение длины вектора
     // в.1
     public double getLength() {
         double sum = 0.0;
+
         for (int i = 0; i < getSize(); i++) {
-            sum = sum + (data[i] * data[i]);
+            sum += (data[i] * data[i]);
         }
         return Math.sqrt(sum);
     }
@@ -148,17 +121,15 @@ public class Vector {
     public static double dot(Vector vector1, Vector vector2) {
         double sum = 0.0;
 
+        for (int i = 0; i < Math.max(vector1.getSize(), vector2.getSize()); i++) {
+            sum += (vector1.data[i] * vector2.data[i]);
+        }
+
         if (vector1.getSize() < vector2.getSize()) {
-            for (int i = 0; i < vector1.getSize(); i++) {
-                sum = sum + (vector1.data[i] * vector2.data[i]);
-            }
-            sum = sum + Arrays.stream(vector2.data, vector1.getSize(), vector2.getSize()).sum();
+            sum += Arrays.stream(vector2.data, vector1.getSize(), vector2.getSize()).sum();
             return sum;
         } else {
-            for (int i = 0; i < vector2.getSize(); i++) {
-                sum = sum + (vector1.data[i] * vector2.data[i]);
-            }
-            sum = sum + Arrays.stream(vector1.data, vector2.getSize(), vector1.getSize()).sum();
+            sum += Arrays.stream(vector1.data, vector2.getSize(), vector1.getSize()).sum();
             return sum;
         }
     }
@@ -174,23 +145,12 @@ public class Vector {
         return newVector;
     }
 
-    private Vector getNewSize(Vector vector2) {
-        Vector newVector = new Vector(Math.max(getSize(), vector2.getSize()));
-
-        if (getSize() < vector2.getSize()) {
-            newVector.data = Arrays.copyOf(data, vector2.getSize());
-        } else if (getSize() >= vector2.getSize()) {
-            newVector.data = Arrays.copyOf(vector2.data, getSize());
-        }
-        return newVector;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Vector)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
         Vector vector = (Vector) o;
@@ -212,6 +172,7 @@ public class Vector {
         for (int i = 1; i < getSize(); i++) {
             s.append(", ").append(data[i]);
         }
-        return s.toString() + '}';
+        s.append("}");
+        return s.toString();
     }
 }

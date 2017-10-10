@@ -33,15 +33,9 @@ public class Rectangle implements Shape {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-
         Rectangle rectangle = (Rectangle) obj;
 
-        if (width != rectangle.getWidth()) {
-            return false;
-        } else if (height != rectangle.getHeight()) {
-            return false;
-        }
-        return true;
+        return width == rectangle.width && height == rectangle.height;
     }
 
     @Override

@@ -34,7 +34,10 @@ public class Circle implements Shape {
 
         Circle circle = (Circle) obj;
 
-        return !(radius != circle.radius);
+        if (radius != circle.radius) {
+            return false;
+        }
+        return true;
     }
 
     @Override
