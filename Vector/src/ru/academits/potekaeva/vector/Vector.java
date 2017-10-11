@@ -1,4 +1,4 @@
-package ru.academits.potekaeva.vector;
+﻿package ru.academits.potekaeva.vector;
 
 import java.util.Arrays;
 
@@ -26,7 +26,7 @@ public class Vector {
     }
 
     public Vector(int n, double... a) {
-        if (a.length <= 0) {
+        if (a.length <= 0 || n <= 0) {
             throw new IllegalArgumentException("Size does't exist");
         } else {
             data = Arrays.copyOf(a, n);
