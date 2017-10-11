@@ -39,13 +39,9 @@ public class Square implements Shape {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-
         Square square = (Square) obj;
 
-        if (width != square.width) {
-            return false;
-        }
-        return !(width != square.width);
+        return width == square.width;
     }
 
     @Override

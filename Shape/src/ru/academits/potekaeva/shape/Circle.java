@@ -31,13 +31,9 @@ public class Circle implements Shape {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-
         Circle circle = (Circle) obj;
 
-        if (radius != circle.radius) {
-            return false;
-        }
-        return true;
+        return radius == circle.radius;
     }
 
     @Override

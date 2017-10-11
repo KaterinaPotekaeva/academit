@@ -5,14 +5,6 @@ import java.util.Arrays;
 public class Vector {
     private double[] data;
 
-    public void setData(double[] data) {
-        this.data = data;
-    }
-
-    public double[] getData() {
-        return data;
-    }
-
     public Vector(int n) {
         if (n <= 0) {
             throw new IllegalArgumentException("Size does't exist");
@@ -22,7 +14,6 @@ public class Vector {
     }
 
     public Vector(Vector vector) {
-        //  this.data = vector.getData(); TODO - можно сдеать так? Или так не переопределяется?
         this.data = Arrays.copyOf(vector.data, vector.data.length);
     }
 
@@ -52,7 +43,11 @@ public class Vector {
     }
 
     public double getElement(int i) {
-        return data[i];
+        if (i >= getSize() || i < 0) {
+            throw new IndexOutOfBoundsException();
+        } else {
+            return data[i];
+        }
     }
 
     private int getSize() {
@@ -61,44 +56,41 @@ public class Vector {
 
     // Умножение на скаляр, разворот вектора
     public Vector scale(double scalar) {
-        Vector newVector = new Vector(getSize());
-
         for (int i = 0; i < getSize(); i++) {
-            newVector.data[i] = scalar * data[i];
-        }
-        return newVector;
-    }
-
-    // Сложение
-    public static Vector plus(Vector vector1, Vector vector2) {
-        return vector1.plus(vector2);
-    }
-
-    public Vector plus(Vector that) {
-        if (getSize() <= that.getSize()) {
-            data = Arrays.copyOf(data, that.getSize());
-        }
-
-        for (int i = 0; i < getSize(); i++) {
-            this.data[i] = this.data[i] + that.data[i];
+            data[i] = scalar * data[i];
         }
         return this;
     }
 
-    //Вычитание
-    public Vector minus(Vector that) {
-        if (getSize() <= that.getSize()) {
+    // Сложение
+    public Vector plus(Vector that) {
+        if (getSize() < that.getSize()) {
             data = Arrays.copyOf(data, that.getSize());
         }
 
-        for (int i = 0; i < getSize(); i++) {
-            this.data[i] = this.data[i] - that.data[i];
+        for (int i = 0; i < that.getSize(); i++) {
+            this.data[i] += that.data[i];
+        }
+        return this;
+    }
+
+    public static Vector plus(Vector vector1, Vector vector2) {
+        return new Vector(vector1).plus(vector2);
+    }
+
+    //Вычитание
+    public Vector minus(Vector that) {
+        if (getSize() < that.getSize()) {
+            data = Arrays.copyOf(data, that.getSize());
+        }
+        for (int i = 0; i < that.getSize(); i++) {
+            this.data[i] -= that.data[i];
         }
         return this;
     }
 
     public static Vector minus(Vector vector1, Vector vector2) {
-        return vector1.minus(vector2);
+        return new Vector(vector1).minus(vector2);
     }
 
     //Получение длины вектора
@@ -119,30 +111,13 @@ public class Vector {
 
     //Скалярное произведение векторов
     public static double dot(Vector vector1, Vector vector2) {
+        int lengthMix = Math.min(vector1.getSize(), vector2.getSize());
         double sum = 0.0;
 
-        for (int i = 0; i < Math.max(vector1.getSize(), vector2.getSize()); i++) {
+        for (int i = 0; i < lengthMix; i++) {
             sum += (vector1.data[i] * vector2.data[i]);
         }
-
-        if (vector1.getSize() < vector2.getSize()) {
-            sum += Arrays.stream(vector2.data, vector1.getSize(), vector2.getSize()).sum();
-            return sum;
-        } else {
-            sum += Arrays.stream(vector1.data, vector2.getSize(), vector1.getSize()).sum();
-            return sum;
-        }
-    }
-
-    private static Vector getNewSize(Vector vector1, Vector vector2) {
-        Vector newVector = new Vector(Math.max(vector1.getSize(), vector2.getSize()));
-
-        if (vector1.getSize() < vector2.getSize()) {
-            newVector.data = Arrays.copyOf(vector1.data, vector2.getSize());
-        } else if (vector1.getSize() >= vector2.getSize()) {
-            newVector.data = Arrays.copyOf(vector2.data, vector1.getSize());
-        }
-        return newVector;
+        return sum;
     }
 
     @Override
@@ -168,7 +143,8 @@ public class Vector {
 
     @Override
     public String toString() {
-        StringBuilder s = new StringBuilder("{" + data[0]);
+        StringBuilder s = new StringBuilder("{");
+        s.append(data[0]);
         for (int i = 1; i < getSize(); i++) {
             s.append(", ").append(data[i]);
         }
