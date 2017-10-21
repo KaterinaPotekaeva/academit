@@ -8,9 +8,6 @@ public class Matrix {
 
     private Vector[] matrix;
 
-    public Matrix() {
-    }
-
     public Matrix(int column, int row) {
         if (row <= 0 || column <= 0) {
             throw new IllegalArgumentException("Size does't exist");
@@ -114,6 +111,24 @@ public class Matrix {
         return this;
     }
 
+    // Сложение
+    public Matrix getSum(Matrix that) {
+        int row = getSize()[0];
+        for (int i = 0; i < row; i++) {
+            this.matrix[i].plus(that.matrix[i]);
+        }
+        return this;
+    }
+
+    //Вычитание
+    public Matrix getMinus(Matrix that) {
+        int row = getSize()[0];
+        for (int i = 0; i < row; i++) {
+            this.matrix[i].minus(that.matrix[i]);
+        }
+        return this;
+    }
+
     //Транспонирование матрицы
     public Matrix getTransposition() {
         int row = getSize()[0];
@@ -126,6 +141,27 @@ public class Matrix {
             }
         }
         return transposedMatrix;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Matrix that = (Matrix) o;
+
+        return Arrays.equals(matrix, that.matrix);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getSize()[0];
+        final int prime = 31;
+        result = prime * result + Arrays.hashCode(matrix);
+        return result;
     }
 
     @Override

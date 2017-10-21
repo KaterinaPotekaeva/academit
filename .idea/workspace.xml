@@ -667,7 +667,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506758757849</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ArrayList">
+      <created>1508574127598</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1508574127598</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -738,7 +745,8 @@
     <MESSAGE value="Range Second version" />
     <MESSAGE value="Shape Second version" />
     <MESSAGE value="Vector First version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vector First version" />
+    <MESSAGE value="ArrayList" />
+    <option name="LAST_COMMIT_MESSAGE" value="ArrayList" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

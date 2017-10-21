@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        double[][] matrix1 = {{1, 5, 1}, {1, 2, 0}, {1, 5, 5}};
+        double[][] matrix1 = {{1, 5}, {1, 2}, {1, 5}};
         double[] vector1 = {1, 5, 8};
         double[] vector2 = {2, 3, 4};
         double[] vector3 = {6, -2, 7};
@@ -22,7 +22,8 @@ public class Main {
         System.out.println("   z                    = " + z);
 
         System.out.println("Transposition           = " + z.getTransposition());
-
+        System.out.println("Addition                = " + z.getSum(y));
+        System.out.println("Subtraction             = " + z.getMinus(y));
         z.setRow(0, new Vector(vector1));
         System.out.println("Row ny index            =  " + z.getRow(0));
         System.out.println("Column by index         = " + Arrays.toString((z.getColumn(0))));
