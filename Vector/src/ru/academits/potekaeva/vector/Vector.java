@@ -1,5 +1,4 @@
-﻿package ru.academits.potekaeva.vector;
-
+package ru.academits.potekaeva.vector;
 import java.util.Arrays;
 
 public class Vector {
@@ -50,7 +49,7 @@ public class Vector {
         }
     }
 
-    private int getSize() {
+    public int getSize() {
         return data.length;
     }
 

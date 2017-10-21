@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="11fc132a-b309-4f64-b651-65df6a103bc4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/main/Main.java" afterPath="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Matrix/src/ru/academits/potekaeva/main/Main.java" afterPath="$PROJECT_DIR$/Matrix/src/ru/academits/potekaeva/main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Matrix/src/ru/academits/potekaeva/matrix/Matrix.java" afterPath="$PROJECT_DIR$/Matrix/src/ru/academits/potekaeva/matrix/Matrix.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Vector/src/ru/academits/potekaeva/vector/Vector.java" afterPath="$PROJECT_DIR$/Vector/src/ru/academits/potekaeva/vector/Vector.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -674,7 +671,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508574127598</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Matrix first version">
+      <created>1508574176511</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1508574176513</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -746,7 +750,8 @@
     <MESSAGE value="Shape Second version" />
     <MESSAGE value="Vector First version" />
     <MESSAGE value="ArrayList" />
-    <option name="LAST_COMMIT_MESSAGE" value="ArrayList" />
+    <MESSAGE value="Matrix first version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Matrix first version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
