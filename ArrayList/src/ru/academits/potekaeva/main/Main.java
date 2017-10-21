@@ -18,21 +18,16 @@ public class Main {
                 list.add(s);
             }
         }
-        for (int i = 0; i < numberInt.size(); i++) {
-            if (numberInt.get(i) % 2 == 0) {
-                numberInt.remove(i);
-                i = -1;
-            }
-        }
         int i = 0;
-     /*
-          while (i < numberInt.size()) {
+        while (i < numberInt.size()) {
             if (numberInt.get(i) % 2 == 0) {
                 numberInt.remove(i);
-             } else {
+            } else {
                 i++;
             }
-        }*/
+        }
+
+        i = 0;
         while (i < numberInt.size()) {
             for (int j = i + 1; j < numberInt.size(); j++) {
                 if (Objects.equals(numberInt.get(i), numberInt.get(j))) {
@@ -41,6 +36,7 @@ public class Main {
             }
             i++;
         }
+
         System.out.println(list);
         System.out.println(numberInt);
     }
