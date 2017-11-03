@@ -28,10 +28,11 @@ public class Main {
         }
 
         i = 0;
-        while (i < numberInt.size()) {
-            for (int j = i + 1; j < numberInt.size(); j++) {
-                if (Objects.equals(numberInt.get(i), numberInt.get(j))) {
-                    numberInt.remove(j);
+        ArrayList<Integer> numberWithoutRepetition = new ArrayList<>(numberInt);
+        while (i < numberWithoutRepetition.size()) {
+            for (int j = i + 1; j < numberWithoutRepetition.size(); j++) {
+                if (Objects.equals(numberWithoutRepetition.get(i), numberWithoutRepetition.get(j))) {
+                    numberWithoutRepetition.remove(j);
                 }
             }
             i++;
@@ -39,6 +40,7 @@ public class Main {
 
         System.out.println(list);
         System.out.println(numberInt);
+        System.out.println(numberWithoutRepetition);
     }
 }
 
