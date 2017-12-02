@@ -82,7 +82,7 @@ public class List<E> {
         checkPositionIndex(index);
 
         ListElement<E> temp = head;
-        for (int i = 0; i < index - 1; i++) {
+        for (int i = 0; i < index; i++) {
             temp = temp.getNext();
 
         }
@@ -109,29 +109,7 @@ public class List<E> {
         }
     }
 
-    //изменение 'элемента по индексу +
-    public E changeElementAtIndex(int index, E data) {
-        checkList();
-        checkPositionIndex(index);
-
-        if (index == 0) {
-            addFront(data);
-            ++size;
-
-            return head.getData();
-
-        } else {
-            ListElement<E> temp = getNodeAtIndex(index-1);
-
-            E insertData = temp.getNext().getData();
-            temp.setData(data);
-            --size;
-            return insertData;
-        }
-    }
-
-
-    //вставка элемента по индексу +
+     //вставка элемента по индексу +
     public void setElementIndex(int index, E data) {
         ListElement<E> temp = getNodeAtIndex(index);
         temp.setNext(new ListElement<>(temp.getNext(), data));
@@ -139,12 +117,12 @@ public class List<E> {
     }
 
     //  удаление узла по значению +
-    public void deleteElementData(E data) {
+    public void deleteNodeAtData(E data) {
         checkList();
 
         if (head.getData().equals(data)) {
-        deleteFirst();
-        return;
+            deleteFirst();
+            return;
         }
 
         ListElement<E> temp = head;
@@ -158,25 +136,8 @@ public class List<E> {
             temp = temp.getNext();
             --size;
         }
-
-
-        ListItem<T> p;
-        if (length == 0) {
-            return false;
-        }
-        if (Objects.equals(head.getData(), data)) {
-            deleteHead();
-            return true;
-        }
-        for (p = head; p.getNext() != null; p = p.getNext()) {
-            if (Objects.equals(p.getNext().getData(), data)) {
-                p.setNext(p.getNext().getNext());
-                --length;
-                return true;
-            }
-
-
     }
+
 
     //удаление узла по после указанного узла +
     public void deleteAfterNode(ListElement<E> node) {
@@ -197,6 +158,8 @@ public class List<E> {
         } else if (node.getNext() == null) {
             ListElement<E> temp = new ListElement<>(data);
             node.setNext(temp);
+
+
         } else {
             ListElement<E> temp = new ListElement<>(data);
             temp.setNext(node.getNext());
@@ -210,7 +173,7 @@ public class List<E> {
         StringBuilder s = new StringBuilder("{");
         ListElement t = head;
         while (t != null) {
-            s.append(t.getData()).append(", ");
+            s.append(t.getData()).append(" ");
             t = t.getNext();
         }
         s.append("}");
