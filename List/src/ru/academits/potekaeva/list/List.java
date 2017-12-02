@@ -1,155 +1,217 @@
 package ru.academits.potekaeva.list;
 
+import java.util.NoSuchElementException;
+import java.util.Objects;
+
 public class List<E> {
-    private ListElement head;
-    private ListElement tail;
+    private ListElement<E> head;
     private int size;
 
+    public List() {
+        head = null;
+        size = 0;
+    }
 
-    // получение первого узла
-    public ListElement getFirstElement() {
+    public List(E data) {
+        head = new ListElement<>(data);
+        size = 1;
+    }
+
+    private void checkPositionIndex(int index) {
+        if (index < 0 || size < index)
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+    }
+
+    private void checkList() {
+        if (head == null) {
+            throw new NoSuchElementException("The list is empty");
+        }
+    }
+
+    //добавить спереди
+    public void addFront(E data) {
+        ListElement<E> newElement = new ListElement<>();
+        newElement.setData(data);
+
+        if (head == null) {
+            head = newElement;
+        } else {
+            newElement.setNext(head);
+            head = newElement;
+        }
+        ++size;
+    }
+
+    // получение первого узла +
+    public ListElement<E> getHead() {
         return head;
     }
 
-    // удаление первого
-    public ListElement deleteFirst() {
-        ListElement temp = head;
+    // удаление первого +
+    public E deleteFirst() {
+        checkList();
 
-        if (head == null) {
-            System.out.println("Список пуст!");
-        } else {
-            head = head.next;
-        }
+        E temp = head.getData();
+        head = head.getNext();
+        --size;
+
         return temp;
     }
 
-    //размер списка
+    //размер списка +
     public int getSizeElements() {
         int count = 0;
         ListElement temp = head;
 
         if (temp != null) {
             count++;
-            while (temp.next != null) {
+            while (temp.getNext() != null) {
                 count++;
-                temp = temp.next;
+                temp = temp.getNext();
             }
         } else {
-            return size = 0;
+            size = 0;
+            return size;
         }
-        return size = count;
+        size = count;
+        return size;
     }
 
-    //добавить спереди
-    public void addFront(E data) {
-        ListElement<E> newElement = new ListElement<>();
-        newElement.data = data;
+    // получение узла по индексу +
+    public ListElement<E> getNodeAtIndex(int index) {
+        checkPositionIndex(index);
 
-        if (head == null) {
-            head = newElement;
-            tail = newElement;
-        } else {
-            newElement.next = head;
-            head = newElement;
-        }
-    }
+        ListElement<E> temp = head;
+        for (int i = 0; i < index - 1; i++) {
+            temp = temp.getNext();
 
-    //  удаление узла по значению +
-    public void deleteElementData(E data) {
-        if (head.data.equals(data)) {
-            head = head.next;
-            return;
-        }
-
-        ListElement temp = head;
-        while (temp.next != null) {
-
-            if (temp.next.data.equals(data)) {
-
-                if (tail == temp.next) {
-                    tail = temp;
-                }
-                temp.next = temp.next.next;
-                return;
-            }
-            temp = temp.next;
-        }
-    }
-
-    //получение узла по индексу
-    public ListElement getElementIndex(int index) {
-        if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("Illegal Capacity: " + size);
-        }
-
-        ListElement temp = head;
-        for (int i = 0; i < index; i++) {
-            temp = temp.next;
         }
         return temp;
     }
 
-    //вставка элемента по индексу
-    public void setElementIndex(E data, int index) {
-        if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("Illegal Capacity: " + size);
-        }
-
-        ListElement<E> newElement = new ListElement<>();
-        newElement.data = data;
-        ListElement temp = head;
+    //удаление 'элемента по индексу +
+    public E deleteElementIndex(int index) {
+        checkList();
+        checkPositionIndex(index);
 
         if (index == 0) {
-            newElement.next = head;
-            head = newElement;
-            return;
+            --size;
+
+            return deleteFirst();
+        } else {
+            ListElement<E> temp = getNodeAtIndex(index - 1);
+
+            E deleteData = temp.getNext().getData();
+            temp.setNext(temp.getNext().getNext());
+            --size;
+
+            return deleteData;
         }
-
-        for (int i = 0; i < index - 1; i++) {
-            temp = temp.next;
-        }
-
-        newElement.next = temp.next;
-        temp.next = newElement;
-
     }
 
-    //удаление  после указанного узла
-    public void deleteElementNextIndex(E data) {
-        if (head == tail) {
-            head = null;
-            tail = null;
-            return;
+    //изменение 'элемента по индексу +
+    public E changeElementAtIndex(int index, E data) {
+        checkList();
+        checkPositionIndex(index);
+
+        if (index == 0) {
+            addFront(data);
+            ++size;
+
+            return head.getData();
+
+        } else {
+            ListElement<E> temp = getNodeAtIndex(index-1);
+
+            E insertData = temp.getNext().getData();
+            temp.setData(data);
+            --size;
+            return insertData;
         }
-        if (head.data.equals(data)) {
-            head.next = head.next.next;
-            return;
+    }
+
+
+    //вставка элемента по индексу +
+    public void setElementIndex(int index, E data) {
+        ListElement<E> temp = getNodeAtIndex(index);
+        temp.setNext(new ListElement<>(temp.getNext(), data));
+        ++size;
+    }
+
+    //  удаление узла по значению +
+    public void deleteElementData(E data) {
+        checkList();
+
+        if (head.getData().equals(data)) {
+        deleteFirst();
+        return;
         }
 
-        ListElement temp = head;
+        ListElement<E> temp = head;
+        while (temp.getNext() != null) {
 
-        while (temp.next != null) {
+            if (temp.getNext().getData().equals(data)) {
 
-            if (temp.next.data.equals(data)) {
-
-                if (tail.next == temp.next.next) {
-                    tail.next = temp.next;
-                }
-                temp.next.next = temp.next.next.next;
+                temp.setNext(temp.getNext().getNext());
+                return;
             }
-            temp = temp.next;
+            temp = temp.getNext();
+            --size;
         }
+
+
+        ListItem<T> p;
+        if (length == 0) {
+            return false;
+        }
+        if (Objects.equals(head.getData(), data)) {
+            deleteHead();
+            return true;
+        }
+        for (p = head; p.getNext() != null; p = p.getNext()) {
+            if (Objects.equals(p.getNext().getData(), data)) {
+                p.setNext(p.getNext().getNext());
+                --length;
+                return true;
+            }
+
 
     }
 
+    //удаление узла по после указанного узла +
+    public void deleteAfterNode(ListElement<E> node) {
+        if (size == 0) {
+            return;
+        }
+        if (node.getNext() == null) {
+            throw new NoSuchElementException("No node after the specified");
+        }
+        node.setNext(node.getNext().getNext());
+        --size;
+    }
+
+    //  вставка  узла после указанного узла +
+    public void insertAfterNode(ListElement<E> node, E data) {
+        if (node == null) {
+            addFront(data);
+        } else if (node.getNext() == null) {
+            ListElement<E> temp = new ListElement<>(data);
+            node.setNext(temp);
+        } else {
+            ListElement<E> temp = new ListElement<>(data);
+            temp.setNext(node.getNext());
+            node.setNext(temp);
+        }
+        ++size;
+    }
 
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder("{");
         ListElement t = head;
         while (t != null) {
-            s.append(t.data).append(" ");
-            t = t.next;
+            s.append(t.getData()).append(", ");
+            t = t.getNext();
         }
         s.append("}");
         return s.toString();
