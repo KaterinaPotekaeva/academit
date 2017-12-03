@@ -15,7 +15,7 @@ public class Main {
         list.addFront(5);
 
         System.out.println(list);
-        System.out.println("Размер списка " + list.getSizeElements());
+
         System.out.println("Первый узел =" + list.getHead());
         System.out.println("Удален первый узел = " + list.deleteFirst()+ " "+list);
         System.out.println("Получение узла по индексу 0 = " + list.getNodeAtIndex(3));
@@ -28,6 +28,6 @@ public class Main {
         System.out.println("Удаление  после указанного узла 1 " + list);
         list.insertAfterNode(list.getNodeAtIndex(1), "f");
         System.out.println("Вставка  после указанного узла " + list);
-
+        System.out.println("Размер списка " + list.getSizeElements());
     }
 }
