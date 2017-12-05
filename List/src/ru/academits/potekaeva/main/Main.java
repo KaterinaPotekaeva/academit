@@ -15,30 +15,24 @@ public class Main {
         list.addFront(null);
 
         System.out.println(list);
-        System.out.println("Размер списка " + list.getSize());
         System.out.println("Первый узел =" + list.getHead());
-        System.out.println("Размер списка " + list.getSize());
-        System.out.println("Удален первый узел = " + list.deleteFirst()+ " "+list);
-        System.out.println("Размер списка " + list.getSize());
+        System.out.println("Удален первый узел = " + list.deleteFirst() + " " + list);
         System.out.println("Получение узла по индексу = " + list.getNodeAtIndex(0));
-        System.out.println("Размер списка " + list.getSize());
-        System.out.println("Удаление элемента по индексу =" + list.deleteElementAtIndex(0)+ " "+list);
-        System.out.println("Размер списка " + list.getSize());
-        list.setElementAtIndex(2, null);
+        System.out.println("Удаление элемента по индексу =" + list.deleteElementAtIndex(0) + " " + list);
+        list.setElementAtIndex(0, null);
         System.out.println("Замена элемента по индексу " + list);
-        System.out.println("Размер списка " + list.getSize());
-        list.deleteNodeAtData(null);
+        list.delete(null);
         System.out.println("Удалить узел по значению: " + list);
-        System.out.println("Размер списка " + list.getSize());
-        list.deleteAfterNode(list.getNodeAtIndex(1));
-        System.out.println("Удаление  после указанного узла 1 " + list);
-        System.out.println("Размер списка " + list.getSize());
-        list.insertAfterNode(list.getNodeAtIndex(1), "f");
-        System.out.println("Вставка  после указанного узла " + list);
-        System.out.println("Размер списка " + list.getSize());
-        System.out.println("Копирование списка "+ list.copy());
         list.reverse();
-        System.out.println("Разворот списка "+list);
+        System.out.println("Разворот списка " + list);
+        list.deleteAfterNode(list.getNodeAtIndex(0));
+        System.out.println("Удаление  после указанного узла 1 " + list);
+        list.insertAfterNode(list.getNodeAtIndex(3), "f");
+        System.out.println("Вставка  после указанного узла " + list);
+        System.out.println("Копирование списка " + list.copy());
+        list.insertElementAtIndex(0, 44);
+        System.out.println("Размер списка " + list.getSize());
+        System.out.println(list);
 
     }
 
