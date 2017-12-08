@@ -10,10 +10,10 @@ public class Matrix {
 
     public Matrix(int columns, int rows) {
         if (columns <= 0) {
-            throw new IllegalArgumentException("The column size does't exist");
+            throw new IllegalArgumentException("The column size isn't correct");
         }
         if (rows <= 0) {
-            throw new IllegalArgumentException("The row size does't exist");
+            throw new IllegalArgumentException("The row size isn't correct");
         }
 
         this.rows = new Vector[rows];
@@ -26,7 +26,7 @@ public class Matrix {
         int rowsCount = array.length;
 
         if (rowsCount == 0) {
-            throw new IllegalArgumentException("The rows size does't exist");
+            throw new IllegalArgumentException("The rows size isn't correct");
         }
 
         for (int i = 1; i < rowsCount; i++) {
@@ -44,7 +44,7 @@ public class Matrix {
 
     public Matrix(Vector[] vector) {
         if (vector.length <= 0) {
-            throw new IllegalArgumentException("The rows size does't exist");
+            throw new IllegalArgumentException("The rows of the vector isn't correct");
         }
 
         int rowsCount = vector.length;
@@ -84,7 +84,7 @@ public class Matrix {
         int rowsCount = getRowsCount();
 
         if (i >= rowsCount || i < 0) {
-            throw new IllegalArgumentException("The index does't exist");
+            throw new IllegalArgumentException("The index isn't correct");
         }
         rows[i] = new Vector(vector);
     }
@@ -94,11 +94,7 @@ public class Matrix {
         int rowsCount = getRowsCount();
 
         if (i >= rowsCount || i < 0) {
-            throw new IllegalArgumentException("The index does't exist");
-        }
-
-        if (rowsCount == 0) {
-            throw new IllegalArgumentException("The matrix does't exist");
+            throw new IllegalArgumentException("The index isn't correct");
         }
         return new Vector(rows[i]);
     }
@@ -107,12 +103,8 @@ public class Matrix {
     public Vector getColumn(int i) {
         int rowsCount = getRowsCount();
 
-        if (rowsCount == 0) {
-            throw new IllegalArgumentException("The matrix does't exist");
-        }
-
         if (i >= getColumnsCount() || getColumnsCount() < 0) {
-            throw new IllegalArgumentException("The index does't exist");
+            throw new IllegalArgumentException("The index isn't correct");
         }
 
         double[] newColumn = new double[getRowsCount()];
@@ -152,7 +144,7 @@ public class Matrix {
     }
 
     public static Matrix getSum(Matrix matrix1, Matrix matrix2) {
-        return new Matrix(matrix1.getSum(matrix2));
+        return new Matrix(matrix1).getSum(new Matrix(matrix2));
     }
 
     //Вычитание
@@ -174,8 +166,7 @@ public class Matrix {
     }
 
     public static Matrix getMinus(Matrix matrix1, Matrix matrix2) {
-
-        return new Matrix(matrix1.getMinus(matrix2));
+        return new Matrix(matrix1).getMinus(new Matrix(matrix2));
     }
 
     //Транспонирование матрицы
@@ -207,7 +198,7 @@ public class Matrix {
     }
 
     //Умножение матрицы на матрицу
-    public static Matrix getMatrixMatrixMultiplication(Matrix matrix1, Matrix matrix2) {
+    public static Matrix multiply(Matrix matrix1, Matrix matrix2) {
 
         if (matrix1.getColumnsCount() != matrix2.getRowsCount()) {
             throw new IllegalArgumentException("The size of matrices does't match");
@@ -236,25 +227,32 @@ public class Matrix {
         return temp;
     }
 
-    public double getDeterminate() {
+    public double getMatrixDeterminant() {
         Matrix matrix = new Matrix(this);
-        if (getColumnsCount() != getRowsCount()) {
+        int columnsCount = matrix.getColumnsCount();
+        int rowsCount = getRowsCount();
+
+        if (getColumnsCount() != rowsCount) {
             throw new IllegalArgumentException("The size of the row and column does't match");
         }
 
         int rowsPermutationsCount = 0;
-        for (int i = 0; i < matrix.getColumnsCount() - 1; ++i) {
-            for (int j = i + 1; j < matrix.getRowsCount(); ++j) {
-                if (matrix.getIndexValueMax(i) != i) {
-                    Vector vector = matrix.rows[i];
-                    matrix.rows[i] = matrix.rows[j];
-                    matrix.rows[j] = vector;
-                    ++rowsPermutationsCount;
-                }
-                double num = matrix.rows[j].getElement(i) / matrix.rows[i].getElement(i);
+        for (int i = 0; i < columnsCount - 1; i++) {
 
-                for (int k = i; k < matrix.getColumnsCount(); ++k) {
-                    matrix.rows[j].setElement(k, matrix.rows[j].getElement(k) - matrix.rows[i].getElement(k) * num);
+            for (int j = i + 1; j < rowsCount; j++) {
+
+                if (matrix.rows[j].getElement(i) != 0) {
+                    if (matrix.getIndexValueMax(i) != i) {
+                        Vector vector = matrix.rows[i];
+                        matrix.rows[i] = matrix.rows[j];
+                        matrix.rows[j] = vector;
+                        ++rowsPermutationsCount;
+                    }
+
+                    double num = matrix.rows[j].getElement(i) / matrix.rows[i].getElement(i);
+                    for (int k = i; k < columnsCount; k++) {
+                        matrix.rows[j].setElement(k, matrix.rows[j].getElement(k) - matrix.rows[i].getElement(k) * num);
+                    }
                 }
             }
 
@@ -264,7 +262,7 @@ public class Matrix {
         }
 
         double determinate = 1;
-        for (int i = 0; i < matrix.getColumnsCount(); ++i) {
+        for (int i = 0; i < columnsCount; i++) {
             determinate *= matrix.rows[i].getElement(i);
         }
 
