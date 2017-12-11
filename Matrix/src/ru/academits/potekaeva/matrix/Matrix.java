@@ -84,7 +84,7 @@ public class Matrix {
         int rowsCount = getRowsCount();
 
         if (i >= rowsCount || i < 0) {
-            throw new IllegalArgumentException("The index isn't correct");
+            throw new IndexOutOfBoundsException();
         }
         rows[i] = new Vector(vector);
     }
@@ -94,19 +94,18 @@ public class Matrix {
         int rowsCount = getRowsCount();
 
         if (i >= rowsCount || i < 0) {
-            throw new IllegalArgumentException("The index isn't correct");
+            throw new IndexOutOfBoundsException();
         }
         return new Vector(rows[i]);
     }
 
     //Получение  вектора столбца по индексу
     public Vector getColumn(int i) {
-        int rowsCount = getRowsCount();
-
         if (i >= getColumnsCount() || getColumnsCount() < 0) {
-            throw new IllegalArgumentException("The index isn't correct");
+            throw new IndexOutOfBoundsException();
         }
 
+        int rowsCount = getRowsCount();
         double[] newColumn = new double[getRowsCount()];
         for (int j = 0; j < rowsCount; j++) {
             newColumn[j] = rows[j].getElement(i);
@@ -144,7 +143,7 @@ public class Matrix {
     }
 
     public static Matrix getSum(Matrix matrix1, Matrix matrix2) {
-        return new Matrix(matrix1).getSum(new Matrix(matrix2));
+        return new Matrix(matrix1).getSum(matrix2);
     }
 
     //Вычитание
@@ -166,7 +165,7 @@ public class Matrix {
     }
 
     public static Matrix getMinus(Matrix matrix1, Matrix matrix2) {
-        return new Matrix(matrix1).getMinus(new Matrix(matrix2));
+        return new Matrix(matrix1).getMinus(matrix2);
     }
 
     //Транспонирование матрицы
