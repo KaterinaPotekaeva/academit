@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class MainArray {
@@ -29,15 +28,11 @@ public class MainArray {
             }
         }
 
-        i = 0;
-        ArrayList<Integer> numberWithoutRepetition = new ArrayList<>(numberInt);
-        while (i < numberWithoutRepetition.size()) {
-            for (int j = i + 1; j < numberWithoutRepetition.size(); j++) {
-                if (Objects.equals(numberWithoutRepetition.get(i), numberWithoutRepetition.get(j))) {
-                    numberWithoutRepetition.remove(j);
-                }
+        ArrayList<Integer> numberWithoutRepetition = new ArrayList<>();
+        for (Integer e : numberInt) {
+            if (!numberWithoutRepetition.contains(e)) {
+                numberWithoutRepetition.add(e);
             }
-            i++;
         }
 
         System.out.println(list1);
