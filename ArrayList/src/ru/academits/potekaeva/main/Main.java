@@ -11,7 +11,6 @@ public class Main {
         list.add(1, 6);
         list.remove(1);
 
-
         MyArrayList<Integer> list2 = new MyArrayList<Integer>();
         for (int i = 0; i < 15; i++) {
             list2.add(i);

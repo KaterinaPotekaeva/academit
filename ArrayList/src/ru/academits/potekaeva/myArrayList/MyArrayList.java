@@ -10,6 +10,7 @@ public class MyArrayList<E> implements List<E> {
 
 
     public MyArrayList() {
+        //noinspection unchecked
         elementData = (E[]) new Object[DEFAULT_CAPACITY];
     }
 
@@ -17,10 +18,9 @@ public class MyArrayList<E> implements List<E> {
         if (capacity < 0) {
             throw new IllegalArgumentException("Illegal Capacity: " + capacity);
         }
-
+        //noinspection unchecked
         this.elementData = (E[]) new Object[capacity];
     }
-
 
     @Override
     public int size() {
@@ -34,23 +34,37 @@ public class MyArrayList<E> implements List<E> {
 
     @Override
     public boolean contains(Object o) {
-        return false;
+        return indexOf(o) != -1;
     }
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        return Arrays.copyOf(elementData, size);
     }
 
     @Override
     public <T> T[] toArray(T[] a) {
-        return null;
+        int aLength = a.length;
+
+        if (aLength < size) {
+            //noinspection unchecked
+            return (T[]) Arrays.copyOf(elementData, size, a.getClass());
+        }
+        //noinspection SuspiciousSystemArraycopy
+        System.arraycopy(elementData, 0, a, 0, size);
+
+        if (aLength > size) {
+            a[size] = null;
+        }
+        return a;
     }
 
     @Override
     public boolean add(E e) {
         ensureCapacity(size + 1);
-        elementData[size++] = e;
+        elementData[size] = e;
+        size++;
+        modCount++;
         return true;
     }
 
@@ -62,23 +76,15 @@ public class MyArrayList<E> implements List<E> {
         System.arraycopy(elementData, index, elementData, index + 1, size - index);
         elementData[index] = element;
         size++;
+        modCount++;
     }
 
     @Override
     public boolean remove(Object o) {
-        if (o == null) {
-            for (int index = 0; index < size; index++) {
-                if (elementData[index] == null) {
-                    fastRemove(index);
-                    return true;
-                }
-            }
-        } else {
-            for (int index = 0; index < size; index++) {
-                if (o.equals(elementData[index])) {
-                    fastRemove(index);
-                    return true;
-                }
+        for (int i = 0; i < size; i++) {
+            if (Objects.equals(o, elementData[i])) {
+                remove(i);
+                return true;
             }
         }
         return false;
@@ -88,51 +94,96 @@ public class MyArrayList<E> implements List<E> {
     public E remove(int index) {
         rangeCheck(index);
 
-        modCount++;
         E oldValue = elementData[index];
+        int moved = size - index - 1;
 
-        int numMoved = size - index - 1;
-        if (numMoved > 0) {
-            System.arraycopy(elementData, index + 1, elementData, index, numMoved);
+        if (moved > 0) {
+            System.arraycopy(elementData, index + 1, elementData, index, moved);
         }
-        elementData[--size] = null;
-
+        size--;
+        modCount++;
         return oldValue;
     }
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        return false;
+        Objects.requireNonNull(c);
+
+        for (Object aC : c) {
+            if (!contains(aC)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
     public boolean addAll(Collection<? extends E> c) {
-        return false;
+        return addAll(this.size, c);
     }
 
     @Override
     public boolean addAll(int index, Collection<? extends E> c) {
-        return false;
+        rangeCheckForAdd(index);
+
+        Objects.requireNonNull(c);
+
+        Object[] a = c.toArray();
+        int collectionLength = a.length;
+
+        if (collectionLength == 0) {
+            return false;
+        }
+
+        if (index == size) {
+            return addAll(c);
+        }
+
+        ensureCapacity(size + collectionLength);
+        int addedPartLastIndex = index + collectionLength - 1;
+        System.arraycopy(elementData, index, elementData, addedPartLastIndex + 1, size - index);
+        //noinspection SuspiciousSystemArraycopy
+        System.arraycopy(a, 0, elementData, index, collectionLength);
+        size += collectionLength;
+        modCount++;
+        return true;
     }
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        return false;
+        Objects.requireNonNull(c);
+        int expectedModCount = modCount;
+
+        for (int i = 0; i < size; ++i) {
+            if (c.contains(elementData[i])) {
+                remove(i);
+                --i;
+            }
+        }
+        return expectedModCount != modCount;
     }
 
     @Override
     public boolean retainAll(Collection<?> c) {
-        return false;
+        Objects.requireNonNull(c);
+        int expectedModCount = modCount;
+
+        for (int i = 0; i < size; ++i) {
+            if (!c.contains(elementData[i])) {
+                remove(i);
+                --i;
+            }
+        }
+        return expectedModCount != modCount;
     }
 
     @Override
     public void clear() {
-        modCount++;
-
         for (int i = 0; i < size; i++) {
             elementData[i] = null;
         }
         size = 0;
+        modCount++;
     }
 
     @Override
@@ -153,12 +204,22 @@ public class MyArrayList<E> implements List<E> {
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        for (int i = 0; i < size; ++i) {
+            if (Objects.equals(o, elementData[i])) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        for (int i = size - 1; i >= 0; --i) {
+            if (Objects.equals(o, elementData[i])) {
+                return i;
+            }
+        }
+        return -1;
     }
 
 
@@ -193,6 +254,7 @@ public class MyArrayList<E> implements List<E> {
                 throw new ConcurrentModificationException();
             }
             cursor = i + 1;
+            //noinspection unchecked
             return (E) elementData[currentIndex = i];
         }
     }
@@ -209,11 +271,10 @@ public class MyArrayList<E> implements List<E> {
 
     @Override
     public List<E> subList(int fromIndex, int toIndex) {
-        return null;
+        throw new IndexOutOfBoundsException("The method subList isn't defined.");
     }
 
     private void ensureCapacity(int minCapacity) {
-        modCount++;
         int oldCapacity = elementData.length;
         if (minCapacity > oldCapacity) {
             int newCapacity = (oldCapacity * 3) / 2 + 1;
@@ -225,6 +286,12 @@ public class MyArrayList<E> implements List<E> {
         }
     }
 
+    public void trimToSize() {
+        if (elementData.length > size) {
+            elementData = Arrays.copyOf(elementData, size);
+            ++modCount;
+        }
+    }
 
     private void rangeCheckForAdd(int index) {
         if (index > size || index < 0) {
@@ -236,16 +303,6 @@ public class MyArrayList<E> implements List<E> {
         if (index >= size) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
-    }
-
-    private void fastRemove(int index) {
-        modCount++;
-        int numMoved = size - index - 1;
-
-        if (numMoved > 0) {
-            System.arraycopy(elementData, index + 1, elementData, index, numMoved);
-        }
-        elementData[--size] = null;
     }
 
     @Override
