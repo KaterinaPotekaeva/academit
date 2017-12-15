@@ -109,8 +109,8 @@ public class MyArrayList<E> implements List<E> {
     public boolean containsAll(Collection<?> c) {
         Objects.requireNonNull(c);
 
-        for (Object aC : c) {
-            if (!contains(aC)) {
+        for (Object e : c) {
+            if (!contains(e)) {
                 return false;
             }
         }
@@ -118,6 +118,7 @@ public class MyArrayList<E> implements List<E> {
     }
 
     @Override
+
     public boolean addAll(Collection<? extends E> c) {
         return addAll(this.size, c);
     }
@@ -125,28 +126,22 @@ public class MyArrayList<E> implements List<E> {
     @Override
     public boolean addAll(int index, Collection<? extends E> c) {
         rangeCheckForAdd(index);
+        //noinspection unchecked
+        E[] a = (E[]) c.toArray();
+        int numNew = a.length;
+        ensureCapacity(size + numNew);
 
-        Objects.requireNonNull(c);
-
-        Object[] a = c.toArray();
-        int collectionLength = a.length;
-
-        if (collectionLength == 0) {
-            return false;
+        int numMoved = size - index;
+        if (numMoved > 0) {
+            System.arraycopy(elementData, index, elementData, index + numNew, numMoved);
         }
 
-        if (index == size) {
-            return addAll(c);
-        }
-
-        ensureCapacity(size + collectionLength);
-        int addedPartLastIndex = index + collectionLength - 1;
-        System.arraycopy(elementData, index, elementData, addedPartLastIndex + 1, size - index);
-        //noinspection SuspiciousSystemArraycopy
-        System.arraycopy(a, 0, elementData, index, collectionLength);
-        size += collectionLength;
+        System.arraycopy(a, 0, elementData, index, numNew);
+        size = numNew;
+        size++;
         modCount++;
         return true;
+
     }
 
     @Override
@@ -257,12 +252,99 @@ public class MyArrayList<E> implements List<E> {
             //noinspection unchecked
             return (E) elementData[currentIndex = i];
         }
+
+        @Override
+        public void remove() {
+            if (currentIndex < 0) {
+                throw new IllegalStateException();
+            }
+            if (modCount != expectedModCount) {
+                throw new ConcurrentModificationException();
+            }
+
+            try {
+                MyArrayList.this.remove(currentIndex);
+                cursor = currentIndex;
+                currentIndex = -1;
+                expectedModCount = modCount;
+            } catch (IndexOutOfBoundsException ex) {
+                throw new ConcurrentModificationException();
+            }
+        }
     }
 
     @Override
     public ListIterator<E> listIterator() {
-        return null;
+        return new ListItr(0);
     }
+
+
+    private class ListItr extends MyIterator implements ListIterator<E> {
+        ListItr(int index) {
+            super();
+            cursor = index;
+        }
+
+        @Override
+        public boolean hasPrevious() {
+            return cursor != 0;
+        }
+
+        @Override
+        public E previous() {
+            if (modCount != expectedModCount) {
+                throw new ConcurrentModificationException();
+            }
+
+            int i = cursor - 1;
+            if (i < 0) {
+                throw new NoSuchElementException();
+            }
+            Object[] elementData = MyArrayList.this.elementData;
+            cursor = i;
+            //noinspection unchecked
+            return (E) elementData[cursor = i];
+        }
+
+
+        @Override
+        public int nextIndex() {
+            return cursor;
+        }
+
+        @Override
+        public int previousIndex() {
+            return cursor - 1;
+        }
+
+
+        @Override
+        public void set(E t) {
+            if (currentIndex < 0) {
+                throw new IllegalStateException();
+            }
+
+            if (modCount != expectedModCount) {
+                throw new ConcurrentModificationException();
+            }
+
+            MyArrayList.this.set(currentIndex, t);
+        }
+
+        @Override
+        public void add(E t) {
+            if (modCount != expectedModCount) {
+                throw new ConcurrentModificationException();
+            }
+
+            int i = cursor;
+            MyArrayList.this.add(i, t);
+            ++cursor;
+            currentIndex = -1;
+            expectedModCount = modCount;
+        }
+    }
+
 
     @Override
     public ListIterator<E> listIterator(int index) {
@@ -271,7 +353,7 @@ public class MyArrayList<E> implements List<E> {
 
     @Override
     public List<E> subList(int fromIndex, int toIndex) {
-        throw new IndexOutOfBoundsException("The method subList isn't defined.");
+        throw new UnsupportedOperationException("The method subList isn't defined.");
     }
 
     private void ensureCapacity(int minCapacity) {
@@ -289,7 +371,6 @@ public class MyArrayList<E> implements List<E> {
     public void trimToSize() {
         if (elementData.length > size) {
             elementData = Arrays.copyOf(elementData, size);
-            ++modCount;
         }
     }
 
@@ -307,7 +388,16 @@ public class MyArrayList<E> implements List<E> {
 
     @Override
     public String toString() {
-        return Arrays.toString(elementData);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("[");
+        for (int i = 0; i < size; ++i) {
+            stringBuilder.append(elementData[i]);
+            if (i != size - 1) {
+                stringBuilder.append(", ");
+            }
+        }
+        stringBuilder.append("]");
+        return stringBuilder.toString();
     }
 }
 
