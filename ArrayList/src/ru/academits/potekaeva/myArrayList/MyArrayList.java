@@ -118,7 +118,6 @@ public class MyArrayList<E> implements List<E> {
     }
 
     @Override
-
     public boolean addAll(Collection<? extends E> c) {
         return addAll(this.size, c);
     }
@@ -126,22 +125,25 @@ public class MyArrayList<E> implements List<E> {
     @Override
     public boolean addAll(int index, Collection<? extends E> c) {
         rangeCheckForAdd(index);
-        //noinspection unchecked
-        E[] a = (E[]) c.toArray();
-        int numNew = a.length;
-        ensureCapacity(size + numNew);
 
-        int numMoved = size - index;
-        if (numMoved > 0) {
-            System.arraycopy(elementData, index, elementData, index + numNew, numMoved);
+        if (c.size() == 0) {
+            return false;
         }
 
-        System.arraycopy(a, 0, elementData, index, numNew);
-        size = numNew;
-        size++;
-        modCount++;
-        return true;
+        ensureCapacity(size + c.size());
+        int numMoved = size - index;
 
+        if (numMoved > 0) {
+            System.arraycopy(elementData, index, elementData, index + c.size(), numMoved);
+        }
+
+        for (E listElement : c) {
+            elementData[index] = (E) listElement;
+            index++;
+            size++;
+            modCount++;
+        }
+        return true;
     }
 
     @Override
@@ -243,7 +245,7 @@ public class MyArrayList<E> implements List<E> {
                 throw new NoSuchElementException();
             }
 
-            Object[] elementData = MyArrayList.this.elementData;
+            E[] elementData = MyArrayList.this.elementData;
 
             if (i >= elementData.length) {
                 throw new ConcurrentModificationException();
@@ -300,7 +302,7 @@ public class MyArrayList<E> implements List<E> {
             if (i < 0) {
                 throw new NoSuchElementException();
             }
-            Object[] elementData = MyArrayList.this.elementData;
+            E[] elementData = MyArrayList.this.elementData;
             cursor = i;
             //noinspection unchecked
             return (E) elementData[cursor = i];

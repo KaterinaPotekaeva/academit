@@ -8,19 +8,15 @@ public class Main {
         for (int i = 0; i < 5; i++) {
             list.add(i);
         }
-        list.add(1, 6);
-        list.remove(1);
-
         MyArrayList<Integer> list2 = new MyArrayList<Integer>();
-        for (int i = 0; i < 15; i++) {
+        for (int i = 8; i > 3; i--) {
             list2.add(i);
         }
 
+        list2.addAll(5, list);
 
-        list2.remove(list);
-
-        System.out.println(list);
-        System.out.println(list2);
+        System.out.println("list " + list);
+        System.out.println("list2 " + list2);
     }
 }
 
