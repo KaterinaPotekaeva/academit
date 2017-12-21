@@ -14,9 +14,10 @@ public class Main {
         }
 
         list2.addAll(5, list);
-
+        System.out.println(list2.size());
         System.out.println("list " + list);
         System.out.println("list2 " + list2);
+
     }
 }
 

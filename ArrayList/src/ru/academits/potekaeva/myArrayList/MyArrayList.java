@@ -132,17 +132,18 @@ public class MyArrayList<E> implements List<E> {
 
         ensureCapacity(size + c.size());
         int numMoved = size - index;
+        int count = index;
 
         if (numMoved > 0) {
             System.arraycopy(elementData, index, elementData, index + c.size(), numMoved);
         }
 
         for (E listElement : c) {
-            elementData[index] = (E) listElement;
-            index++;
-            size++;
+            elementData[count] = (E) listElement;
+            count++;
             modCount++;
         }
+        size += c.size();
         return true;
     }
 
@@ -219,7 +220,6 @@ public class MyArrayList<E> implements List<E> {
         return -1;
     }
 
-
     public Iterator<E> iterator() {
         return new MyIterator();
     }
@@ -251,8 +251,9 @@ public class MyArrayList<E> implements List<E> {
                 throw new ConcurrentModificationException();
             }
             cursor = i + 1;
+            currentIndex = i;
             //noinspection unchecked
-            return (E) elementData[currentIndex = i];
+            return (E) elementData[currentIndex];
         }
 
         @Override
@@ -280,7 +281,6 @@ public class MyArrayList<E> implements List<E> {
         return new ListItr(0);
     }
 
-
     private class ListItr extends MyIterator implements ListIterator<E> {
         ListItr(int index) {
             super();
@@ -304,10 +304,11 @@ public class MyArrayList<E> implements List<E> {
             }
             E[] elementData = MyArrayList.this.elementData;
             cursor = i;
+            currentIndex = i;
             //noinspection unchecked
-            return (E) elementData[cursor = i];
-        }
 
+            return (E) elementData[currentIndex];
+        }
 
         @Override
         public int nextIndex() {
@@ -318,7 +319,6 @@ public class MyArrayList<E> implements List<E> {
         public int previousIndex() {
             return cursor - 1;
         }
-
 
         @Override
         public void set(E t) {
@@ -346,7 +346,6 @@ public class MyArrayList<E> implements List<E> {
             expectedModCount = modCount;
         }
     }
-
 
     @Override
     public ListIterator<E> listIterator(int index) {
