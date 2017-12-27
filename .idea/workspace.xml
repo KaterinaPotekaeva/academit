@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11fc132a-b309-4f64-b651-65df6a103bc4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/academit" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MyHashTable/src/ru/academits/potekaeva/main/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MyHashTable/src/ru/academits/potekaeva/myHashTable/MyHashTable.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/HashTable/HashTable.iml" afterPath="$PROJECT_DIR$/MyHashTable/MyHashTable.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/List.java" afterPath="$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/List.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/ListElement.java" afterPath="$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/ListElement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/List/src/ru/academits/potekaeva/main/Main.java" afterPath="$PROJECT_DIR$/List/src/ru/academits/potekaeva/main/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Array/src/ru/academits/potekaeva/main/MainArray.java" afterPath="$PROJECT_DIR$/Array/src/ru/academits/potekaeva/main/MainArray.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/main/Main.java" afterPath="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/main/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/MyArrayList.java" afterPath="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/MyArrayList.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,6 +20,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/academit$Main__4_.coverage" NAME="Main (4) Coverage Results" MODIFIED="1514273764583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ru.academits.potekaeva.main.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/academit$Main__2_.coverage" NAME="Main (2) Coverage Results" MODIFIED="1512210367770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ru.academits.potekaeva.main.*</FILTER>
     </SUITE>
@@ -24,38 +30,77 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/main/Main.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MyHashTable/src/ru/academits/potekaeva/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="20" column="63" lean-forward="false" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="List.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/List.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="171" column="29" lean-forward="true" selection-start-line="171" selection-start-column="29" selection-end-line="171" selection-end-column="29" />
+            <state relative-caret-position="289">
+              <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#952#953#0" expanded="true" />
-                <element signature="e#979#980#0" expanded="true" />
-                <element signature="e#1215#1216#0" expanded="true" />
-                <element signature="e#1242#1243#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListElement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/ListElement.java">
+      <file leaf-file-name="Hashtable.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/Hashtable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="-3553">
+              <caret line="93" column="9" lean-forward="false" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
+              <folding>
+                <element signature="docComment;field#table#0;class#Hashtable#0" expanded="false" />
+                <element signature="docComment;field#count#0;class#Hashtable#0" expanded="false" />
+                <element signature="docComment;field#threshold#0;class#Hashtable#0" expanded="false" />
+                <element signature="docComment;field#loadFactor#0;class#Hashtable#0" expanded="false" />
+                <element signature="docComment;field#modCount#0;class#Hashtable#0" expanded="false" />
+                <element signature="docComment;method#Hashtable#0;class#Hashtable#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyHashTable.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MyHashTable/src/ru/academits/potekaeva/myHashTable/MyHashTable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-313">
+              <caret line="129" column="44" lean-forward="true" selection-start-line="129" selection-start-column="44" selection-end-line="129" selection-end-column="44" />
+              <folding>
+                <element signature="e#572#573#0" expanded="true" />
+                <element signature="e#638#639#0" expanded="true" />
+                <element signature="e#677#678#0" expanded="true" />
+                <element signature="e#704#705#0" expanded="true" />
+                <element signature="e#750#751#0" expanded="true" />
+                <element signature="e#782#783#0" expanded="true" />
+                <element signature="e#837#838#0" expanded="true" />
+                <element signature="e#884#885#0" expanded="true" />
+                <element signature="e#1424#1425#0" expanded="true" />
+                <element signature="e#1469#1470#0" expanded="true" />
+                <element signature="e#4096#4097#0" expanded="true" />
+                <element signature="e#4141#4142#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyArrayList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/MyArrayList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-79">
+              <caret line="115" column="9" lean-forward="true" selection-start-line="115" selection-start-column="9" selection-end-line="115" selection-end-column="9" />
+              <folding>
+                <element signature="e#906#907#0" expanded="true" />
+                <element signature="e#961#962#0" expanded="true" />
+                <element signature="e#2762#2763#0" expanded="true" />
+                <element signature="e#2805#2806#0" expanded="true" />
+                <element signature="e#5318#5319#0" expanded="true" />
+                <element signature="e#5363#5364#0" expanded="true" />
+                <element signature="e#6919#6920#0" expanded="true" />
+                <element signature="e#6961#6962#0" expanded="true" />
+                <element signature="e#7521#7522#0" expanded="true" />
+                <element signature="e#7558#7559#0" expanded="true" />
+                <element signature="e#7614#7615#0" expanded="true" />
+                <element signature="e#7655#7656#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,42 +116,43 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cartesian</find>
-      <find>getLength</find>
-      <find>Length</find>
-      <find>index</find>
-      <find>size</find>
-      <find>checkForComodification</find>
-      <find>ensureCapacity</find>
-      <find>ensureCapacityInternal</find>
-      <find>ensureCapacityI</find>
-      <find>deleteHead</find>
-      <find>insertAfterNode</find>
-      <find>nsertToBegin</find>
-      <find>deleteFirst</find>
-      <find>deleteAtIndex</find>
-      <find>ElementAtIndex</find>
-      <find>getNodeAtIndex</find>
-      <find>deleteAfterNode</find>
-      <find>delete</find>
-      <find>checkPositionIndex</find>
-      <find>удаление 'элемента по индексу</find>
-      <find>changeElementAtIndex</find>
-      <find>getData</find>
-      <find>delet</find>
-      <find>deleteNodeAtData</find>
-      <find>NodeAtData</find>
-      <find>length</find>
-      <find>dataAtIndex</find>
-      <find>deleteElementAtIndex</find>
-      <find>deleteNodeAtData</find>
-      <find>equals</find>
+      <find>= ArrayList.this</find>
+      <find>s ListItr extends</find>
+      <find>remove()</find>
+      <find>checkForComodification()</find>
+      <find>IndexOutOfBoundsException</find>
+      <find>ITR</find>
+      <find>forEachRemaining()</find>
+      <find>ob</find>
+      <find>set</find>
+      <find>forEachRemaining</find>
+      <find>list2</find>
+      <find>nextIndex</find>
+      <find>cursor = index</find>
+      <find>remove(Object o</find>
+      <find>addAll</find>
+      <find>currentIndex</find>
+      <find>removeAll(Collection&lt;?&gt; c)</find>
+      <find>previous</find>
+      <find>&lt;E&gt;</find>
+      <find>add</find>
+      <find>Iterator</find>
+      <find>Iterator(</find>
+      <find>checkForComodification(</find>
+      <find>Iterator&lt;</find>
+      <find>Itr</find>
+      <find>NoSuchElementException</find>
+      <find>addAll(</find>
+      <find>NoSuchElementException();</find>
+      <find>++</find>
+      <find>--</find>
     </findStrings>
     <replaceStrings>
       <replace>Parameter</replace>
       <replace>getSize</replace>
       <replace>The length</replace>
       <replace>list</replace>
+      <replace>&lt;T&gt;</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Projects\academit\Matrix</dir>
@@ -123,12 +169,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Shape/src/ru/academits/potekaeva/Shape/Shape.java" />
-        <option value="$PROJECT_DIR$/Shape/src/ru/academits/potekaeva/Shape/Point.java" />
-        <option value="$PROJECT_DIR$/Shape/src/ru/academits/potekaeva/Shape/Rectangle.java" />
-        <option value="$PROJECT_DIR$/Shape/src/ru/academits/potekaeva/Shape/Circle.java" />
-        <option value="$PROJECT_DIR$/Shape/src/ru/academits/potekaeva/Shape/Area.java" />
-        <option value="$PROJECT_DIR$/Shape/src/ru/academits/potekaeva/Shape/Parameter.java" />
         <option value="$PROJECT_DIR$/Shape/src/ru/academits/potekaeva/Shape/Triangle.java" />
         <option value="$PROJECT_DIR$/Shape/src/ru/academits/potekaeva/Shape/Square.java" />
         <option value="$PROJECT_DIR$/Shape/src/ru/academits/potekaeva/Main/Main.java" />
@@ -157,12 +197,9 @@
         <option value="$PROJECT_DIR$/Matrix/src/ru/academits/potekaeva/main/Main.java" />
         <option value="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myList/MyList.java" />
         <option value="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/main/MainArray.java" />
-        <option value="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/main/Main.java" />
         <option value="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/ar.java" />
         <option value="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/MyList.java" />
         <option value="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/ww.java" />
-        <option value="$PROJECT_DIR$/Array/src/ru/academits/potekaeva/main/MainArray.java" />
-        <option value="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/MyArrayList.java" />
         <option value="$PROJECT_DIR$/List/src/ru/academits/potekaeva/ListElement.java" />
         <option value="$PROJECT_DIR$/Matrix/src/ru/academits/potekaeva/matrix/Matrix.java" />
         <option value="$PROJECT_DIR$/List/src/ru/academits/potekaeva/main/E.java" />
@@ -172,8 +209,17 @@
         <option value="$PROJECT_DIR$/List/src/ru/academits/potekaeva/main/Maim1.java" />
         <option value="$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/l.java" />
         <option value="$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/SinglyLinkedList.java" />
-        <option value="$PROJECT_DIR$/List/src/ru/academits/potekaeva/main/Main.java" />
         <option value="$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/List.java" />
+        <option value="$PROJECT_DIR$/List/src/ru/academits/potekaeva/main/Main.java" />
+        <option value="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/l.java" />
+        <option value="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/i.java" />
+        <option value="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/main/Main.java" />
+        <option value="$PROJECT_DIR$/Array/src/ru/academits/potekaeva/main/MainArray.java" />
+        <option value="$PROJECT_DIR$/HashTable/src/ru/academits/potekaeva/main/Main.java" />
+        <option value="$PROJECT_DIR$/HashTable/src/ru/academits/potekaeva/hashTable/HashTable.java" />
+        <option value="$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/MyArrayList.java" />
+        <option value="$PROJECT_DIR$/MyHashTable/src/ru/academits/potekaeva/main/Main.java" />
+        <option value="$PROJECT_DIR$/MyHashTable/src/ru/academits/potekaeva/myHashTable/MyHashTable.java" />
       </list>
     </option>
   </component>
@@ -217,6 +263,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -239,7 +286,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="List" />
+              <option name="myItemId" value="Range" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -253,7 +300,69 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="List" />
+              <option name="myItemId" value="Range" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="potekaeva" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="academit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="academit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MyHashTable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="academit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="academit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MyHashTable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="potekaeva" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myHashTable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="academit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="academit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MyHashTable" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -282,6 +391,34 @@
               <option name="myItemId" value="List" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="academit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="academit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArrayList" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="academit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="academit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArrayList" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -291,14 +428,39 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="list" />
+              <option name="myItemId" value="myArrayList" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="academit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="academit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArrayList" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="potekaeva" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="AndroidView" />
     </panes>
@@ -349,27 +511,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (2)">
-    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ru.academits.potekaeva.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="ru.academits.potekaeva.main.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Matrix" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Application.Main (4)">
     <configuration default="false" name="MainArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -427,6 +569,46 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="List" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Main (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ru.academits.potekaeva.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="ru.academits.potekaeva.main.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="MyHashTable" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ru.academits.potekaeva.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="ru.academits.potekaeva.main.Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
       <envs />
       <method />
     </configuration>
@@ -634,17 +816,20 @@
       <listeners />
       <method />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="1" class="java.lang.String" itemvalue="Application.MainArray" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Main (1)" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Main (2)" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Application.MainArray" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Main (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Main (2)" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Main (4)" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Main" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main (2)" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Main (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Application.MainArray" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.Main (4)" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Main (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Application.MainArray" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Main (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -738,18 +923,18 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3418708" sideWeight="0.2979744" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.298441" sideWeight="0.7020256" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.023385301" sideWeight="0.7020256" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34545454" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22921109" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23987207" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3530067" sideWeight="0.45735607" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3452116" sideWeight="0.45735607" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -757,7 +942,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -838,14 +1023,28 @@
           <properties field="expectedModCount" class="java.util.ArrayList.Itr" />
           <option name="timeStamp" value="94" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Array/src/ru/academits/potekaeva/main/MainArray.java</url>
+          <line>12</line>
+          <properties class="ru.academits.potekaeva.main.MainArray" method="main">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/MyArrayList.java</url>
-          <line>118</line>
+          <url>jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/ArrayList.java</url>
+          <line>914</line>
           <properties />
-          <option name="timeStamp" value="96" />
+          <option name="timeStamp" value="126" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/ArrayList.java</url>
+          <line>915</line>
+          <properties />
+          <option name="timeStamp" value="127" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="123" />
+      <option name="time" value="142" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -854,36 +1053,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../CharacterCount/src/RetrieveMax.java" />
-    <entry file="file://$PROJECT_DIR$/../CharacterCount/src/UnrollArray.java" />
-    <entry file="file://$PROJECT_DIR$/../CharacterCount/src/ArithmeticalMean.java" />
-    <entry file="file://$PROJECT_DIR$/../CharacterCount/src/SearchElement.java" />
-    <entry file="file://$PROJECT_DIR$/../CharacterCount/src/MultiplicationTable.java" />
-    <entry file="file://$PROJECT_DIR$/../CharacterCount/src/SortArray.java" />
-    <entry file="file://$PROJECT_DIR$/../Involution/src/EuclidAlgorithm.java" />
-    <entry file="file://$PROJECT_DIR$/../Involution/src/Involution.java" />
-    <entry file="file://$PROJECT_DIR$/../BinarySearch/src/BinarySearch.java" />
-    <entry file="file://$PROJECT_DIR$/Shape/src/ru/academits/potekaeva/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="23" column="40" lean-forward="false" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Range/src/ru/academits/potekaeva/range/Range.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="50" column="101" lean-forward="false" selection-start-line="50" selection-start-column="101" selection-end-line="50" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Range/src/ru/academits/potekaeva/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="11" column="39" lean-forward="false" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Matrix/src/ru/academits/potekaeva/matrix/Gauss.java" />
     <entry file="file://$PROJECT_DIR$/../ImageTest/src/Main.java" />
     <entry file="file://$PROJECT_DIR$/../ReadingFiles/src/PartitionLine.java" />
@@ -893,7 +1062,6 @@
     <entry file="file://$PROJECT_DIR$/../ComplexExpression/src/ComplexExpression.java" />
     <entry file="file://$PROJECT_DIR$/../DifferentExpression/src/DifferentExpression.java" />
     <entry file="file://$PROJECT_DIR$/../Arithmetic/src/Arithmetic.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/ArrayList.java" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DI01.897/Matrix.java" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DI39.993/Matrix.java" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DI42.535/Matrix.java" />
@@ -929,13 +1097,6 @@
     <entry file="file://$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/ww.java" />
     <entry file="file://$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/MyList.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/ArrayList.java" />
-    <entry file="file://$PROJECT_DIR$/Vector/src/ru/academits/potekaeva/vector/Vector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Vector/src/ru/academits/potekaeva/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -943,101 +1104,201 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Array/src/ru/academits/potekaeva/main/MainArray.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/main/ListItem.java" />
-    <entry file="file://$PROJECT_DIR$/Matrix/src/ru/academits/potekaeva/matrix/Matrix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="248" column="4" lean-forward="false" selection-start-line="248" selection-start-column="4" selection-end-line="248" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/main/E.java" />
-    <entry file="file://$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/MyArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/academit/List/src/ru/academits/potekaeva/list/List.java" />
     <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/main/mail1.java" />
     <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/main/Maim1.java" />
-    <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/l.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="93" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/l.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="2993" column="0" lean-forward="false" selection-start-line="2993" selection-start-column="0" selection-end-line="2993" selection-end-column="0" />
-          <folding>
-            <element signature="e#117955#117956#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/ListItem.java">
+    <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/ListItem.java" />
+    <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/SinglyLinkedList.java" />
+    <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="340">
+          <caret line="20" column="63" lean-forward="false" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/SinglyLinkedList.java">
+    <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/List.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="175" column="5" lean-forward="true" selection-start-line="162" selection-start-column="3" selection-end-line="175" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="249">
+          <caret line="171" column="29" lean-forward="false" selection-start-line="171" selection-start-column="29" selection-end-line="171" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/ListElement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/list/List.java">
+    <entry file="file://$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/l.java" />
+    <entry file="file://$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/i.java" />
+    <entry file="file://$PROJECT_DIR$/Vector/src/ru/academits/potekaeva/vector/Vector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="171" column="29" lean-forward="true" selection-start-line="171" selection-start-column="29" selection-end-line="171" selection-end-column="29" />
+        <state relative-caret-position="357">
+          <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Matrix/src/ru/academits/potekaeva/matrix/Matrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-561">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HashTable/HashTable.iml" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DI00.683/MyArrayList.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-192">
+          <caret line="904" column="0" lean-forward="false" selection-start-line="904" selection-start-column="0" selection-end-line="906" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#979#980#0" expanded="true" />
-            <element signature="e#1215#1216#0" expanded="true" />
-            <element signature="e#1242#1243#0" expanded="true" />
+            <element signature="method#forEachRemaining#0;class#Itr#0;class#ArrayList#0" expanded="false" />
+            <element signature="e#33262#33263#0" expanded="true" />
+            <element signature="e#33304#33305#0" expanded="true" />
+            <element signature="e#33413#33414#0" expanded="true" />
+            <element signature="e#33454#33455#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/List/src/ru/academits/potekaeva/main/Main.java">
+    <entry file="file://$PROJECT_DIR$/Array/Array.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/LinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-193">
+          <caret line="84" column="58" lean-forward="true" selection-start-line="84" selection-start-column="58" selection-end-line="84" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/Collection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="255" column="4" lean-forward="false" selection-start-line="255" selection-start-column="4" selection-end-line="255" selection-end-column="4" />
+          <folding>
+            <element signature="docComment;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#size#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#isEmpty#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#contains#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#iterator#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#toArray#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#toArray#1;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#add#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#remove#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#containsAll#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#addAll#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#removeAll#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#removeIf#0;class#Collection#0" expanded="false" />
+            <element signature="method#removeIf#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#retainAll#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#clear#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#equals#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#hashCode#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#spliterator#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#stream#0;class#Collection#0" expanded="false" />
+            <element signature="docComment;method#parallelStream#0;class#Collection#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Array/src/ru/academits/potekaeva/main/MainArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="25" column="36" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HashTable/src/ru/academits/potekaeva/main/Main.java" />
+    <entry file="file://$PROJECT_DIR$/HashTable/src/ru/academits/potekaeva/hashTable/HashTable.java" />
+    <entry file="file://$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="20" column="63" lean-forward="false" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/Hashtable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3553">
+          <caret line="93" column="9" lean-forward="false" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
+          <folding>
+            <element signature="docComment;field#table#0;class#Hashtable#0" expanded="false" />
+            <element signature="docComment;field#count#0;class#Hashtable#0" expanded="false" />
+            <element signature="docComment;field#threshold#0;class#Hashtable#0" expanded="false" />
+            <element signature="docComment;field#loadFactor#0;class#Hashtable#0" expanded="false" />
+            <element signature="docComment;field#modCount#0;class#Hashtable#0" expanded="false" />
+            <element signature="docComment;method#Hashtable#0;class#Hashtable#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArrayList/src/ru/academits/potekaeva/myArrayList/MyArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-79">
+          <caret line="115" column="9" lean-forward="true" selection-start-line="115" selection-start-column="9" selection-end-line="115" selection-end-column="9" />
+          <folding>
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#961#962#0" expanded="true" />
+            <element signature="e#2762#2763#0" expanded="true" />
+            <element signature="e#2805#2806#0" expanded="true" />
+            <element signature="e#5318#5319#0" expanded="true" />
+            <element signature="e#5363#5364#0" expanded="true" />
+            <element signature="e#6919#6920#0" expanded="true" />
+            <element signature="e#6961#6962#0" expanded="true" />
+            <element signature="e#7521#7522#0" expanded="true" />
+            <element signature="e#7558#7559#0" expanded="true" />
+            <element signature="e#7614#7615#0" expanded="true" />
+            <element signature="e#7655#7656#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyHashTable/src/ru/academits/potekaeva/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyHashTable/src/ru/academits/potekaeva/myHashTable/MyHashTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-313">
+          <caret line="129" column="44" lean-forward="true" selection-start-line="129" selection-start-column="44" selection-end-line="129" selection-end-column="44" />
+          <folding>
+            <element signature="e#572#573#0" expanded="true" />
+            <element signature="e#638#639#0" expanded="true" />
+            <element signature="e#677#678#0" expanded="true" />
+            <element signature="e#704#705#0" expanded="true" />
+            <element signature="e#750#751#0" expanded="true" />
+            <element signature="e#782#783#0" expanded="true" />
+            <element signature="e#837#838#0" expanded="true" />
+            <element signature="e#884#885#0" expanded="true" />
+            <element signature="e#1424#1425#0" expanded="true" />
+            <element signature="e#1469#1470#0" expanded="true" />
+            <element signature="e#4096#4097#0" expanded="true" />
+            <element signature="e#4141#4142#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
