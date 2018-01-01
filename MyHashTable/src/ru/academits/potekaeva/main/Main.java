@@ -19,16 +19,5 @@ public class Main {
         hashTable1.addAll(hashTable);
         System.out.println(hashTable);
 
-//        Iterator<Integer> iterator = hashTable.iterator();
-//
-//        iterator.hasNext();
-//        iterator.next();
-//        iterator.next();
-//        iterator.next();
-//        iterator.remove();
-//        iterator.next();
-//        iterator.next();
-//        iterator.next();
-//        System.out.println(hashTable);
     }
 }

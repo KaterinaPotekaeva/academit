@@ -10,7 +10,6 @@ public class MyHashTable<T> implements Collection<T> {
 
     public MyHashTable() {
         this(DEFAULT_CAPACITY);
-
     }
 
     public MyHashTable(int capacity) {
@@ -97,11 +96,10 @@ public class MyHashTable<T> implements Collection<T> {
             if (element == null) {
                 throw new IllegalStateException();
             }
-
+            element = null;
             iterator.remove();
             expectedModCount++;
             modCount++;
-            element = null;
             cursor--;
             size--;
         }
